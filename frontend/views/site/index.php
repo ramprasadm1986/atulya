@@ -9,7 +9,28 @@ use yii\helpers\Url;
  
  $this->title = 'Atulya Karigari';
  ?>
- 
+ <div style="width:100%; height:100%; float:left; background:rgba(0, 0, 0, 0.53); position:fixed; z-index:9999; display:none; " id="subscribebox">
+		<div class="mobpopup"  style=" width: 40%;
+  height: 300px;
+  background: #fff;
+  padding: 40px;
+  margin: auto;
+  margin-top:7%;
+  text-align: center;
+  padding-bottom: 15px;
+  border-radius: 6px; ">
+  <span><i class="fa fa-close" alt="close" style="float:right; color:#333; padding:5px; cursor:pointer; margin-top:-20px; margin-right:-20px;" onclick="$('#subscribebox').hide();"></i></span>
+  
+  <h3 style="font-size:30px;color:#333; font-family: "HK Grotesk",sans-serif; line-height:2;letter-spacing: 1px;"><img src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/maintainance.png"?>" height="100"/>
+  <br/>
+  Hey! We are<br><b>currently undergoing maintenance </b></h3>
+  
+  <p style="color:#f0802e;  font-size:20px; text-align:center; margin-top:30px;font-family: "HK Grotesk",sans-serif; letter-spacing:1px;">please excuse occasional issues and downtimes.</p>
+  <br>
+
+</div>
+</div>
+	
 <?php if (Yii::$app->hasModule('banner')): ?>
     <section class="home-full-slider-wrapper mb-10px">
          <!-- Hero Slider-->
@@ -21,12 +42,12 @@ use yii\helpers\Url;
                     <div class="owl-item" style="width: 1583px;">
                          <div class="item d-flex align-items-center" style="background: rgb(248, 213, 207) none repeat scroll 0% 0%; height: 642.55px;">
                             <img class="bg-image" src="<?=$slides->image; ?>" alt="<?=$slides->title ?>">
-                                <div class="container-fluid h-100 py-5 mt-5" style="margin-top: 600px !important;">
+                                <div class="container-fluid h-100 py-5 mt-5" style="margin-top: 400px !important;">
                                    <div class="row">
-                                          <div class="col-lg-8 col-xl-6  text-white" >
+                                          <div class="col-lg-8 offset-lg-1 col-xl-6  text-white" >
                                                  <!--h5 class="text-uppercase text-white font-weight-light mb-4 letter-spacing-5"> Just arrived</h5-->
                                                  <h1 class="mb-3 text-uppercase  text-serif" style="font-size:22px; padding-top:15px;"><?=$slides->title ?></h1>
-                                                <p class="lead mb-3 text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, <br/>sed do eiusmod tempor incididunt ut labore<br/> et dolore magna aliqua.</p>
+                                                <p class="lead mb-3 text-light">Inspired by Jagannath and Vaishnav traditions, pattachitra is the oldest <br/> art form from Odisha. Atulya Karigari features an extensive list<br/> of pattachitra products.</p>
                                                 <?php if($slides->link_to!=""):?>
                                                     <p> <a class="btn btn-dark" href="<?=Url::toRoute([$slides->link_to]); ?>">View collection</a></p>
                                                  <?php endif; ?>
@@ -57,7 +78,7 @@ use yii\helpers\Url;
                      <div class="card-img-overlay d-flex align-items-center">
                         <div class="w-100">
                            <h3 class=" mb-4">Khandua Silk Tie</h3>
-                           <a class="btn btn-link text-white" href="<?=Url::toRoute(['category/category-1']); ?>">Shop now <i class="fa-arrow-right fa ml-2"></i></a>
+                           <a class="btn btn-link text-white" href="<?=Url::toRoute(['category/tie']); ?>">Shop now <i class="fa-arrow-right fa ml-2"></i></a>
                         </div>
                      </div>
                   </div>
@@ -68,18 +89,18 @@ use yii\helpers\Url;
                      <div class="card-img-overlay d-flex align-items-center">
                         <div class="w-100">
                            <h3 class="mb-4">Banarasi Silk Saree</h3>
-                           <a class="btn btn-link text-white" href="<?=Url::toRoute(['category/category-2']); ?>">Shop now <i class="fa-arrow-right fa ml-2"></i></a>
+                           <a class="btn btn-link text-white" href="<?=Url::toRoute(['category/banarsi-silk']); ?>">Shop now <i class="fa-arrow-right fa ml-2"></i></a>
                         </div>
                      </div>
                   </div>
                </div>
                <div class="col-lg-4 mb-10px px-5px">
                   <div class="card border-0 text-center text-white">
-                     <img class="card-img" src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_images/dhokra.jpg"?>" alt="Card image">
+                     <img class="card-img" src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_images/dhokra1.jpg"?>" alt="Card image">
                      <div class="card-img-overlay d-flex align-items-center">
                         <div class="w-100">
                            <h3 class=" mb-4">Dhokra</h3>
-                           <a class="btn btn-link text-white" href="<?=Url::toRoute(['category/category-3']); ?>">Shop now <i class="fa-arrow-right fa ml-2"></i></a>
+                           <a class="btn btn-link text-white" href="<?=Url::toRoute(['category/dhokra']); ?>">Shop now <i class="fa-arrow-right fa ml-2"></i></a>
                         </div>
                      </div>
                   </div>
@@ -138,13 +159,13 @@ use yii\helpers\Url;
                <!-- post-->
                <div class="col-lg-4 col-6">
                   <div class="mb-30px">
-                     <a href="post.html"><img class="img-fluid" src="http://atulyakarigari.com/images/img1.jpg" alt="..."></a>
+                     <a href="#"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home1.jpg"?>" alt="..."></a>
                      
                   </div>
                </div>
                <!-- /post end-->
                <!-- post-->
-               <div class="col-lg-4 col-6">
+               <div class="col-lg-4 col-6" style="background:#fff;">
                   <div class="mb-30px">
                     
                      <div class="mt-3">
@@ -160,7 +181,7 @@ use yii\helpers\Url;
                <!-- post-->
                <div class="col-lg-4 col-6">
                   <div class="mb-30px">
-                     <a href="post.html"><img class="img-fluid" src="http://atulyakarigari.com/images/img2.jpg" alt="..."></a>
+                     <a href="#"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home2.jpg"?>" alt="..."></a>
                     
                   </div>
                </div>
@@ -254,10 +275,11 @@ use yii\helpers\Url;
             </div>
             <div class="row">
                <!-- post-->
-               <div class="col-lg-4 col-6">
+               <div class="col-lg-4 col-6 ">
+                  
                   <div class="mb-30px">
-                     <a href="post.html"><img class="img-fluid" src="http://atulyakarigari.com/images/f1.jpg" alt="..."></a>
-                     <div class="mt-3">
+                     <a href="post.html"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home3.jpg"?>" alt="..."></a>
+                     <div class="fashionbox">
                         <small class="text-uppercase text-muted">Fashion and style </small>
                         <h5 class="my-2"><a class="text-dark" href="post.html">Pellentesque habitant morbi          </a></h5>
                         <p class="text-gray-500 text-sm my-3"><i class="far fa-clock mr-2"></i>January 16, 2016</p>
@@ -265,13 +287,15 @@ use yii\helpers\Url;
                         <a class="btn btn-link text-gray-700 pl-0" href="post.html">Read more<i class="fa fa-arrow-right ml-2"></i></a>
                      </div>
                   </div>
+                  
                </div>
                <!-- /post end-->
                <!-- post-->
                <div class="col-lg-4 col-6">
+                   
                   <div class="mb-30px">
-                     <a href="post.html"><img class="img-fluid" src="http://atulyakarigari.com/images/f2.jpg" alt="..."></a>
-                     <div class="mt-3">
+                     <a href="post.html"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home4.jpg"?>" alt="..."></a>
+                     <div class="fashionbox">
                         <small class="text-uppercase text-muted">Fashion and style </small>
                         <h5 class="my-2"><a class="text-dark" href="post.html">Best books about Fashion          </a></h5>
                         <p class="text-gray-500 text-sm my-3"><i class="far fa-clock mr-2"></i>January 16, 2016</p>
@@ -279,13 +303,15 @@ use yii\helpers\Url;
                         <a class="btn btn-link text-gray-700 pl-0" href="post.html">Read more<i class="fa fa-arrow-right ml-2"></i></a>
                      </div>
                   </div>
+                  
                </div>
                <!-- /post end-->
                <!-- post-->
                <div class="col-lg-4 col-6">
+                  
                   <div class="mb-30px">
-                     <a href="post.html"><img class="img-fluid" src="http://atulyakarigari.com/images/f3.jpg" alt="..."></a>
-                     <div class="mt-3">
+                     <a href="post.html"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home5.jpg"?>" alt="..."></a>
+                     <div class="fashionbox ">
                         <small class="text-uppercase text-muted">Fashion and style </small>
                         <h5 class="my-2"><a class="text-dark" href="post.html">Best books about Fashion          </a></h5>
                         <p class="text-gray-500 text-sm my-3"><i class="far fa-clock mr-2"></i>January 16, 2016</p>
@@ -293,18 +319,19 @@ use yii\helpers\Url;
                         <a class="btn btn-link text-gray-700 pl-0" href="post.html">Read more<i class="fa fa-arrow-right ml-2"></i></a>
                      </div>
                   </div>
+                  
                </div>
                <!-- /post end-->
             </div>
          </div>
       </section>
     <section class="py-6 position-relative light-overlay">
-         <img class="bg-image" src="http://www.atulyakarigari.com/images/banner3.jpg" alt="">
+         <img class="bg-image" src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_banners/banner4.jpg"?>" alt="">
          <div class="container">
             <div class="overlay-content text-center text-light">
-               <p class="text-uppercase font-weight-bold mb-1 letter-spacing-5">Old Collection                  </p>
-               <h3 class="display-3  text-serif mb-4">Summer Sales</h3>
-               <a class="btn btn-light" href="#">Shop Now</a>
+               <p class="text-uppercase font-weight-bold mb-1 letter-spacing-5">Authentic Hand Made                  </p>
+               <h3 class="display-3  text-serif mb-4">Atulya Karigari Collections</h3>
+               <a class="btn btn-light" href="https://www.atulyakarigari.com/category">Shop Now</a>
             </div>
          </div>
     </section>
@@ -314,57 +341,33 @@ use yii\helpers\Url;
             <!-- Brands Slider-->
             <div class="owl-carousel owl-theme brands-slider owl-loaded owl-drag">
                <div class="owl-stage-outer">
-                  <div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1880px;">
-                     <div class="owl-item active" style="width: 168px; margin-right: 20px;">
-                        <div class="item d-flex align-items-center justify-content-center" style="height: 97.4px;">
-                           <div class="w-6rem"><img class="img-fluid" src="https://d19m59y37dris4.cloudfront.net/sell/1-4/img/brand/brand-1.svg" alt="Brand 1"></div>
+                  <div class="owl-stage" >
+                     <div class="owl-item active" >
+                        <div class="item d-flex align-items-center justify-content-center" >
+                           <div class="w-7rem"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/logo1.png"?>" alt="Brand 1"></div>
                         </div>
                      </div>
-                     <div class="owl-item active" style="width: 168px; margin-right: 20px;">
-                        <div class="item d-flex align-items-center justify-content-center" style="height: 97.4px;">
-                           <div class="w-6rem"><img class="img-fluid" src="https://d19m59y37dris4.cloudfront.net/sell/1-4/img/brand/brand-2.svg" alt="Brand 2"></div>
+                     <div class="owl-item active" >
+                        <div class="item d-flex align-items-center justify-content-center" >
+                           <div class="w-7rem"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/logo2.png"?>" alt="Brand 2"></div>
                         </div>
                      </div>
-                     <div class="owl-item active" style="width: 168px; margin-right: 20px;">
-                        <div class="item d-flex align-items-center justify-content-center" style="height: 97.4px;">
-                           <div class="w-6rem"><img class="img-fluid" src="https://d19m59y37dris4.cloudfront.net/sell/1-4/img/brand/brand-3.svg" alt="Brand 3"></div>
+                     <div class="owl-item active" >
+                        <div class="item d-flex align-items-center justify-content-center">
+                           <div class="w-7rem"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/logo3.png"?>" alt="Brand 3"></div>
                         </div>
                      </div>
-                     <div class="owl-item active" style="width: 168px; margin-right: 20px;">
-                        <div class="item d-flex align-items-center justify-content-center" style="height: 97.4px;">
-                           <div class="w-6rem"><img class="img-fluid" src="https://d19m59y37dris4.cloudfront.net/sell/1-4/img/brand/brand-4.svg" alt="Brand 4"></div>
+                     <div class="owl-item active" >
+                        <div class="item d-flex align-items-center justify-content-center" >
+                           <div class="w-7rem"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/logo4.png"?>" alt="Brand 4"></div>
                         </div>
                      </div>
-                     <div class="owl-item active" style="width: 168px; margin-right: 20px;">
-                        <div class="item d-flex align-items-center justify-content-center" style="height: 97.4px;">
-                           <div class="w-6rem"><img class="img-fluid" src="https://d19m59y37dris4.cloudfront.net/sell/1-4/img/brand/brand-5.svg" alt="Brand 5"></div>
+                     <div class="owl-item active" >
+                        <div class="item d-flex align-items-center justify-content-center">
+                           <div class="w-7rem"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/logo1.png"?>" alt="Brand 5"></div>
                         </div>
                      </div>
-                     <div class="owl-item active" style="width: 168px; margin-right: 20px;">
-                        <div class="item d-flex align-items-center justify-content-center" style="height: 97.4px;">
-                           <div class="w-6rem"><img class="img-fluid" src="https://d19m59y37dris4.cloudfront.net/sell/1-4/img/brand/brand-6.svg" alt="Brand 6"></div>
-                        </div>
-                     </div>
-                     <div class="owl-item active" style="width: 168px; margin-right: 20px;">
-                        <div class="item d-flex align-items-center justify-content-center" style="height: 97.4px;">
-                           <div class="w-6rem"><img class="img-fluid" src="https://d19m59y37dris4.cloudfront.net/sell/1-4/img/brand/brand-1.svg" alt="Brand 1"></div>
-                        </div>
-                     </div>
-                     <div class="owl-item" style="width: 168px; margin-right: 20px;">
-                        <div class="item d-flex align-items-center justify-content-center" style="height: 97.4px;">
-                           <div class="w-6rem"><img class="img-fluid" src="https://d19m59y37dris4.cloudfront.net/sell/1-4/img/brand/brand-2.svg" alt="Brand 2"></div>
-                        </div>
-                     </div>
-                     <div class="owl-item" style="width: 168px; margin-right: 20px;">
-                        <div class="item d-flex align-items-center justify-content-center" style="height: 97.4px;">
-                           <div class="w-6rem"><img class="img-fluid" src="https://d19m59y37dris4.cloudfront.net/sell/1-4/img/brand/brand-3.svg" alt="Brand 3"></div>
-                        </div>
-                     </div>
-                     <div class="owl-item" style="width: 168px; margin-right: 20px;">
-                        <div class="item d-flex align-items-center justify-content-center" style="height: 97.4px;">
-                           <div class="w-6rem"><img class="img-fluid" src="https://d19m59y37dris4.cloudfront.net/sell/1-4/img/brand/brand-4.svg" alt="Brand 4"></div>
-                        </div>
-                     </div>
+                    
                   </div>
                </div>
                <div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div>

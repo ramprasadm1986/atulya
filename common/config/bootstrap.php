@@ -10,7 +10,7 @@ Yii::setAlias('@frontendUrl', $WebProtocol."://".$_SERVER['SERVER_NAME']);
 Yii::setAlias('@backendUrl', $WebProtocol."://".$_SERVER['SERVER_NAME']."/backend");
 Yii::setAlias('@storageUrl',$WebProtocol."://".$_SERVER['SERVER_NAME']."/storage");
 Yii::setAlias('@storageUrlNonProtocal',"//".$_SERVER['SERVER_NAME']."/storage");
-
+Yii::setAlias('@frontendUrlNonProtocal',"//".$_SERVER['SERVER_NAME']);
 Yii::setAlias('@AllowedCountry',"IN");
 Yii::setAlias('@currency',"₹");
 Yii::setAlias('@currencyCode',"INR");

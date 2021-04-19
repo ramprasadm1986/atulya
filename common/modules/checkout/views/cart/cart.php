@@ -15,14 +15,14 @@ $this->title = 'Cart';
 table tr th{background:#2a5b86;color:#fff; font-weight:normal;}
 table tr td{vertical-align:middle !important;font-size: 16px;
 color: #555;}
+.input-group-btn{margin-top:6px;}
 </style>
 <section class="hero">
-<div class="main-content">
-    <div class="container cart-block-style">          
+<div class="main-content ">
+    <div class="container cart-block-style innerpage">          
 		
-		<div class="contentText">
-			<h1>Cart
-			</h1>
+		<div class="hero-content pb-5 text-center">
+			<h1 class="hero-heading">Cart</h1>
 		</div>
         <?php 
 		if(count($CartItem['CartItems'])){
@@ -108,7 +108,7 @@ color: #555;}
         
         
 		<div class="row">
-			<div class="col-sm-4 col-sm-offset-8">
+			<div class="col-sm-4 offset-8">
 				<table class="table table-bordered">
 					<tbody>
 						<tr>
@@ -125,9 +125,11 @@ color: #555;}
 				</table>
 			</div>
 		</div>
-		<div class="buttons">
+		<div class="row">
+		<div class="buttons col-md-12">
 			<div class="pull-left"><a class="btn btn-info" href="<?= Url::to(Yii::$app->request->referrer);?>"><i class="fa fa-caret-right"></i>&nbsp;Continue Shopping</a></div>
 			<div class="pull-right"><a class="btn btn-primary reg_button" href="<?= Url::to(['/checkout/onepage']);?>">Proceed to Checkout</a></div>
+		</div>
 		</div>
 		<?php 
 		}else{

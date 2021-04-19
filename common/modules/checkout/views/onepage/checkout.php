@@ -28,13 +28,14 @@ color: #555;}
 .product-name{padding-left:10px;}
 .select2-container--krajee .select2-selection--single {height:40px;}
 </style>
+	<section class="hero">
 <div class="main-content">
     <?php $form = ActiveForm::begin([
         'fieldConfig' => ['options' => ['class' => 'col-lg-6 col-sm-6']],
     ]); ?>
     
 
-	<section class="hero">
+
          <div class="container">
             <!-- Breadcrumbs -->
             <ol class="breadcrumb justify-content-center">
@@ -52,7 +53,7 @@ color: #555;}
                </div>
             </div>
          </div>
-      </section>
+     
 <div class="container">  
     <div class="row">
         <div class="col-lg-8">
@@ -60,7 +61,7 @@ color: #555;}
         <div class="block-header">
            <h6 class="text-uppercase mb-0"> Invoice Address</h6>
         </div>
-       
+        <div class="row">
          <?= Html::hiddenInput('selected_state_id', $CartAddress->isNewRecord ? '' : $CartAddress->state, ['id'=>'selected_state_id']); ?>
          <?= Html::hiddenInput('selected_city_id', $CartAddress->isNewRecord ? '' : $CartAddress->city, ['id'=>'selected_city_id']); ?>
          <?= Html::hiddenInput('is_star', false, ['id' => 'is_star']); ?>
@@ -134,7 +135,7 @@ color: #555;}
         <?= $form->field($CartAddress, 'phone',[
                     'template' => "{label}\n{input}\n{hint}\n{error}",
                     'labelOptions' => [ 'class' => 'form-label' ]])->textInput(['maxlength' => true]) ?>
-       
+       </div>
         </div>
         
         </div>
@@ -146,12 +147,14 @@ color: #555;}
               </div>
              
             <?php foreach($CartItemmodel['CartItems'] as $CartItem) :?>
-             <div class="block-body bg-light pt-1" style="float:left;">
-                <div class="checkout-item">
+             <div class="block-body  pt-1" style="float:left;">
+                 
+                <div class=" checkout-item ">
+                    <div class="row">
                     <div class="col-md-2 col-sm-2 col-xs-12" style="padding-right:0px;">
                     <img class="pull-left" src="<?= $CartItem['image'];?>" width="100%" />
                     </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12" style="padding-right:0px;">
+                    <div class="col-md-5 col-sm-5 col-xs-12" style="padding-right:0px;">
                     <label class="control-label"><?= $CartItem['item_name'];?></label>
                     
                     <?php if($CartItem['variations']!="") :
@@ -172,15 +175,17 @@ color: #555;}
                         </dl>
                     <?php endif;?>
                     </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="col-md-5 col-sm-5 col-xs-12">
                     <strong class="pull-right"><i><?=$CartItem['qty']?> X <?= Yii::getAlias('@currency').$CartItem['sell_price']?> = <?=Yii::getAlias('@currency').$CartItem['row_total']?></i></strong>
                     </div>
                     <div class="clearfix"></div>
                 </div>
-                
+                </div>
            
             <?php endforeach;?>
             <hr>
+            <div class="row" style="display:none;">
+             <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="form-group">
                         <div class="pull-left">
                         <label class="control-label"><i>Sub Total</i></label>
@@ -189,14 +194,17 @@ color: #555;}
                         <label class="control-label"><?= Yii::getAlias('@currency').$CartItemmodel['CartDetails']['cart_subtotal_excl_tax'];?></label>
                         </div>
                     </div> 
-           
+            </div>
+          </div>
+          <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-            <hr>
+            
              
              <?= $form->field($Cart, 'shipping_details')->radioList(ArrayHelper::map(ShippingMethod::find()->where(['status'=>1])->all(), 'method', 'name')); ?>
                <hr>
-             
             </div>
+           </div>
+           <div class="row">
             <div class="form-group col-md-12 col-sm-12 col-xs-12">
                 
                     <div class="form-group">
@@ -208,6 +216,8 @@ color: #555;}
                         </div>
                     </div>                
             </div>
+            </div>
+            <div class="row">
             <div class="form-group col-md-12 col-sm-12 col-xs-12">    
                
                     <div class="form-group">
@@ -221,6 +231,9 @@ color: #555;}
                     </div>                
                 
             </div>
+            </div>
+            <hr>
+            <div class="row">
             <div class="form-group col-md-12 col-sm-12 col-xs-12">    
                     <div class="form-group">
                         <div class="pull-left">
@@ -233,10 +246,14 @@ color: #555;}
                     </div>                
                
             </div>
+            </div>
+            
+             <div class="row">
             <div class="form-group col-md-12 col-sm-12 col-xs-12">
                 <div class="pull-right">
                     <?= Html::submitButton('<i class="fa fa-save"></i> Place Order', ['class' => 'btn btn-dark','id'=>'placeorder']) ?>
                 </div>
+            </div>
             </div>
           
         </div>
@@ -248,6 +265,7 @@ color: #555;}
      </div>
     </div>
 </div>
+ </section>
 <?php 
 $setShippingUrl=Url::to(['/checkout/onepage/setshipping']);
 $js=<<<JS

@@ -2,7 +2,7 @@
 
 namespace frontend\controllers;
 use common\models\Product;
-
+use yii\helpers\Url;
 
 
 class ProductController extends \yii\web\Controller
@@ -42,6 +42,17 @@ class ProductController extends \yii\web\Controller
            return $this->_CurrentProduct;
     }
     
+    
+    public function getBreadcrumbs(){
+		$Breadcrumbs=array();
+		$Breadcrumbs[]="<li class='breadcrumb-item'><a href='".Url::home()."'>Home</a></li>";
+	
+		
+		$Breadcrumbs[]="<li class='breadcrumb-item active'>".$this->_CurrentProduct->name."</li>";
+		
+		return implode("",$Breadcrumbs);
+		
+	}
    
 
 }

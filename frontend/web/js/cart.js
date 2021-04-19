@@ -151,3 +151,20 @@ function setShippingMethod(url,method){
 		},
 	});
 }
+
+
+function ordersessioncheck(url,method){
+    
+
+	$.ajax({
+		url: url,
+		type: "GET",
+	
+		success: function (result) {
+		
+			
+			console.log(result);
+		},
+	
+	});
+}

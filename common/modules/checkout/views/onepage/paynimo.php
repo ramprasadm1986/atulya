@@ -39,6 +39,7 @@ use yii\helpers\Url;
     Please Wait....
     <br />
     Redirecting
+    <?php print_r($OrderIdentifire);?>
     <br />
     <?php if(!$redirect): ?>
     <pre>

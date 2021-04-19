@@ -27,76 +27,30 @@ $this->title = 'My Account';
         </div>
     </div>
 </section>
-<div class="container-fluid blogcontainer">
+<div class="container-fluid blogcontainer innerpage" style="margin-top:0px;">
     <div class="row">
         <div class="col-lg-8 col-xl-9">
-            <table class="table table-borderless table-hover table-responsive-md">
+            <table class="table table-bordered table-hover table-responsive-md">
                 <thead class="bg-light">
                     <tr>
                         <th class="py-2 text-uppercase text-sm">Order #</th>
                         <th class="py-2 text-uppercase text-sm">Date</th>
                         <th class="py-2 text-uppercase text-sm">Total</th>
                         <th class="py-2 text-uppercase text-sm">Status</th>
-                        <th class="py-2 text-uppercase text-sm">Action</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
+                    
+                    <?php foreach($orders as $order){ ?>
                     <tr>
-                        <th class="py-2 align-middle"># 1735</th>
-                        <td class="py-2 align-middle">22/6/2017</td>
-                        <td class="py-2 align-middle"><?=Yii::getAlias('@currency');?> 150.00</td>
-                        <td class="py-2 align-middle"><span class="badge p-2 text-uppercase badge-info">Being prepared</span></td>
-                        <td class="py-2 align-middle"><a class="btn btn-outline-dark btn-sm" href="#">View</a></td>
+                        <th class="py-2 align-middle"># <?= $order->order_identifire ?></th>
+                        <td class="py-2 align-middle"><?= date("d/m/Y",strtotime($order->created_at)); ?></td>
+                        <td class="py-2 align-middle"><?=Yii::getAlias('@currency');?> <?= $order->order_total ?></td>
+                        <td class="py-2 align-middle"><span class="badge p-2 text-uppercase badge-info"><?= ucfirst($order->order_status); ?></span></td>
+                       
                     </tr>
-                    <tr>
-                        <th class="py-2 align-middle"># 1734</th>
-                        <td class="py-2 align-middle">7/5/2017</td>
-                        <td class="py-2 align-middle"><?=Yii::getAlias('@currency');?> 150.00</td>
-                        <td class="py-2 align-middle"><span class="badge p-2 text-uppercase badge-warning">Action needed</span></td>
-                        <td class="py-2 align-middle"><a class="btn btn-outline-dark btn-sm" href="#">View</a></td>
-                    </tr>
-                    <tr>
-                        <th class="py-2 align-middle"># 1730</th>
-                        <td class="py-2 align-middle">30/9/2016</td>
-                        <td class="py-2 align-middle"><?=Yii::getAlias('@currency');?> 150.00</td>
-                        <td class="py-2 align-middle"><span class="badge p-2 text-uppercase badge-success">Received</span></td>
-                        <td class="py-2 align-middle"><a class="btn btn-outline-dark btn-sm" href="#">View</a></td>
-                    </tr>
-                    <tr>
-                        <th class="py-2 align-middle"># 1705</th>
-                        <td class="py-2 align-middle">22/6/2016</td>
-                        <td class="py-2 align-middle"><?=Yii::getAlias('@currency');?> 150.00</td>
-                        <td class="py-2 align-middle"><span class="badge p-2 text-uppercase badge-danger">Cancelled</span></td>
-                        <td class="py-2 align-middle"><a class="btn btn-outline-dark btn-sm" href="#">View</a></td>
-                    </tr>
-                    <tr>
-                        <th class="py-2 align-middle"># 1735</th>
-                        <td class="py-2 align-middle">22/6/2017</td>
-                        <td class="py-2 align-middle"><?=Yii::getAlias('@currency');?> 150.00</td>
-                        <td class="py-2 align-middle"><span class="badge p-2 text-uppercase badge-info">Being prepared</span></td>
-                        <td class="py-2 align-middle"><a class="btn btn-outline-dark btn-sm" href="#">View</a></td>
-                    </tr>
-                    <tr>
-                        <th class="py-2 align-middle"># 1734</th>
-                        <td class="py-2 align-middle">7/5/2017</td>
-                        <td class="py-2 align-middle"><?=Yii::getAlias('@currency');?> 150.00</td>
-                        <td class="py-2 align-middle"><span class="badge p-2 text-uppercase badge-warning">Action needed</span></td>
-                        <td class="py-2 align-middle"><a class="btn btn-outline-dark btn-sm" href="#">View</a></td>
-                    </tr>
-                    <tr>
-                        <th class="py-2 align-middle"># 1730</th>
-                        <td class="py-2 align-middle">30/9/2016</td>
-                        <td class="py-2 align-middle"><?=Yii::getAlias('@currency');?> 150.00</td>
-                        <td class="py-2 align-middle"><span class="badge p-2 text-uppercase badge-success">Received</span></td>
-                        <td class="py-2 align-middle"><a class="btn btn-outline-dark btn-sm" href="#">View</a></td>
-                    </tr>
-                    <tr>
-                        <th class="py-2 align-middle"># 1705</th>
-                        <td class="py-2 align-middle">22/6/2016</td>
-                        <td class="py-2 align-middle"><?=Yii::getAlias('@currency');?> 150.00</td>
-                        <td class="py-2 align-middle"><span class="badge p-2 text-uppercase badge-danger">Cancelled</span></td>
-                        <td class="py-2 align-middle"><a class="btn btn-outline-dark btn-sm" href="#">View</a></td>
-                    </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>

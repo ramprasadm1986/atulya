@@ -27,6 +27,7 @@ use ramprasadm1986\paypal\PayPalPayment;
 use ramprasadm1986\paynimo\TransactionRequestBean;
 use ramprasadm1986\paynimo\TransactionResponseBean;
 
+
  
 
 
@@ -83,7 +84,7 @@ class OnepageController extends Controller
        
         $OrderIdentifire=Yii::$app->session->get('OrderIdentifire');
 		
-        if($OrderIdentifire==""){
+        if($OrderIdentifire=="" && $OrderIdentifire===null){
             $count = Yii::$app->db->createCommand("
                 SELECT `AUTO_INCREMENT`
                 FROM  INFORMATION_SCHEMA.TABLES
@@ -231,11 +232,8 @@ class OnepageController extends Controller
     public function actionPaynimoreturn(){
         
         $response = Yii::$app->request->post();
-        $session = Yii::$app->session;
-        $session->open();
-       
-        $OrderIdentifire=Yii::$app->session->get('OrderIdentifire');
-        $CartIdentifire=Yii::$app->session->get('CartIdentifire');
+     
+        
     if(is_array($response)){
         $str = $response['msg'];
     }else if(is_string($response) && strstr($response, 'msg=')){
@@ -252,6 +250,9 @@ class OnepageController extends Controller
     $transactionResponseBean->key = Yii::getAlias('@MerchantKey');
     $transactionResponseBean->iv = Yii::getAlias('@MerchantIV');
     $response = $transactionResponseBean->getResponsePayload();
+    
+    
+    
      try{
        $str=str_replace("|",'","',$response);
        $str=str_replace("=",'":"',$str);
@@ -259,6 +260,12 @@ class OnepageController extends Controller
        $str=json_decode('{"'.$str.'"}');
        
        if($str->txn_msg=="success"){
+           
+          
+          $order_identi=explode("-",$str->clnt_txn_ref);
+            $CartIdentifire=$order_identi[1];
+            $OrderIdentifire=$order_identi[0];
+           
                 $Order = Order::find()->where(['order_identifire'=>$OrderIdentifire,'status'=>0])->one();
                 $Cart = Cart::find()->where(['cart_identifire'=>$CartIdentifire,'status'=>0])->one();
                 
@@ -277,14 +284,14 @@ class OnepageController extends Controller
            }
             else{
                 Yii::$app->session->remove('OrderIdentifire');
-                Yii::$app->session->remove('PayPalId');
+                
                 return $this->redirect(['/cart']);
             }
      }
      catch(Exception $e) {
          
                 Yii::$app->session->remove('OrderIdentifire');
-                Yii::$app->session->remove('PayPalId');
+               
                 return $this->redirect(['/cart']);
                 
                 
@@ -314,7 +321,7 @@ class OnepageController extends Controller
        
                 $OrderIdentifire=Yii::$app->session->get('OrderIdentifire');
                 
-                if($OrderIdentifire==''){
+                if($OrderIdentifire=='' || $OrderIdentifire===null){
                     $OrderIdentifire=$this->getOrderidentifire();
                     $order= new Order();
                     
@@ -385,10 +392,10 @@ class OnepageController extends Controller
     $transactionRequestBean->ITC = "email:".$model->email;
 
     $transactionRequestBean->requestType = "T";
-    $transactionRequestBean->merchantTxnRefNumber =$order->order_identifire;
+    $transactionRequestBean->merchantTxnRefNumber =$order->order_identifire."-".$Cart->cart_identifire;
     $transactionRequestBean->amount = $order->order_total;
     $transactionRequestBean->currencyCode = Yii::getAlias('@currencyCode');
-    $transactionRequestBean->returnURL = Yii::getAlias('@frontendUrl').'/checkout/onepage/paynimoreturn';
+    $transactionRequestBean->returnURL = 'https://www.atulyakarigari.com/checkout/onepage/paynimoreturn';
     $transactionRequestBean->s2SReturnURL = "https://tpslvksrv6046/LoginModule/Test.jsp";
     $transactionRequestBean->shoppingCartDetails = "FIRST_". $order->order_total . '_0.0';
     $transactionRequestBean->txnDate = date('d-m-Y');;
@@ -433,6 +440,7 @@ class OnepageController extends Controller
          return $this->render('paynimo', [
                                 'redirect' => $redirect,
                                 'paynimo'=>$response,
+                                'OrderIdentifire'=>$OrderIdentifire,
                                 'responseDetails'=>$responseDetails,
                                 'transactionRequestBean'=>$transactionRequestBean
                             ]);                  
@@ -487,6 +495,20 @@ class OnepageController extends Controller
 			return $this->redirect(['/cart']);
 		}
 		
+    }
+    
+    public function actionGetordersession(){
+        
+      // $session = Yii::$app->session;
+     //  $session->open();
+        //$OrderIdentifire=$this->getOrderidentifire();
+        $OrderIdentifires=Yii::$app->session->get('OrderIdentifire');
+        return $this->asJson(['OrderIdentifire'=> $OrderIdentifires]); 
+    }
+    
+    public function actionOrdersessioncheck(){
+       
+       return $this->render("ordersessioncheck");
     }
 
 

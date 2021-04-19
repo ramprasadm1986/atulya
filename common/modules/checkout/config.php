@@ -21,6 +21,8 @@ return [
                 '/checkout/onepage/paynimoreturn' => '/checkout/onepage/paynimoreturn',
                 '/checkout/onepage/cancel' => '/checkout/onepage/cancel',
                 '/checkout/success' => '/checkout/success/index', 
+                '/checkout/onepage/ordersessioncheck' => '/checkout/onepage/ordersessioncheck',
+                '/checkout/onepage/getordersession' => '/checkout/onepage/getordersession',
                
             ]
         

@@ -13,13 +13,12 @@ $this->title = $product->name;
          <div class="container">
             <!-- Breadcrumbs -->
             <ol class="breadcrumb justify-content-center">
-               <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-               <li class="breadcrumb-item active">Handloom Sarees        </li>
+              <?= $this->context->getBreadcrumbs();?>
             </ol>
             <!-- Hero Content-->
             <div class="hero-content pb-5 text-center">
-               <h1 class="hero-heading">Handloom Saree</h1>
-               <div class="row">
+               <h1 class="hero-heading"><?= $product->name ?></h1>
+               <div class="row" style="display:none !important;">
                   <div class="col-xl-8 offset-xl-2">
                      <p class="lead text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
                   </div>
@@ -46,7 +45,8 @@ $this->title = $product->name;
                  
                 </div>
             </div>
-            <div class="d-flex col-lg-6 col-xl-5 pl-lg-5 mb-5 order-1 order-lg-2">
+            <div class="d-flex col-lg-6 col-xl-5  mb-5 order-1 order-lg-2">
+                <div class="pdescription">
                 <div class="col-lg-12"> 
                   <h3 class="mb-4 mt-4 mt-lg-1"><?= $product->name ?></h3>
                   <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-sm-between mb-4">
@@ -78,19 +78,22 @@ $this->title = $product->name;
                         <label class="detail-option-heading font-weight-bold">Items <span>(required)</span></label>
                         <input class="form-control detail-quantity" name="items" value="1" type="number">
                     </div>
+                    <div class="col-12 col-lg-6 detail-option mb-5">
+                       
                     <?php  
                     $CPAttribute_ids=[];
                     foreach($product->cPAttributes as $CPAttribute): ?>
                    <?php $CPAttribute_ids[]='attribute_id'.$CPAttribute->id;?>
+                   <label class="detail-option-heading font-weight-bold">Size <span>(required)</span></label>
                     <?= Html::dropDownList($CPAttribute->name, null,
-                    ArrayHelper::map(CatalogProductAttributesOption::find()->where(['attribute_id'=>$CPAttribute->id])->all(), 'name', 'name'),['id'=>'attribute_id'.$CPAttribute->id,'prompt' =>'Select '.$CPAttribute->name,'onchange'=>"SwitchPrice();"]) ?>
+                    ArrayHelper::map(CatalogProductAttributesOption::find()->where(['attribute_id'=>$CPAttribute->id])->all(), 'name', 'name'),['id'=>'attribute_id'.$CPAttribute->id, 'class'=> 'form-control','prompt' =>'Select '.$CPAttribute->name,'onchange'=>"SwitchPrice();"]) ?>
                     <?php endforeach;?>
                       
                       
                        <?php if($product->IsVariable()):?>
                        <a class="sales-36-products" href="#" id="variable_price"> </a>
                        <?php endif;?>
-                    
+                    </div>
                     </div>
                     <ul class="list-inline">
                       <li class="list-inline-item">
@@ -101,11 +104,12 @@ $this->title = $product->name;
                     </ul>
                   
                 </div>
+                </div>
             </div>
         </div>
     </div>
     	  <section class="mt-5">
-      <div class="container-fluid blogcontainer">
+      <div class="container-fluid blogcontainer tabcontentbox">
         <ul class="nav nav-tabs flex-column flex-sm-row" role="tablist">
           <li class="nav-item"><a class="nav-link detail-nav-link active" data-toggle="tab" href="#description" role="tab" aria-selected="false">Description</a></li>
          

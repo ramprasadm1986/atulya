@@ -413,7 +413,7 @@ $(function () {
     var brandsSlider = $('.brands-slider');
     brandsSlider.owlCarousel({
         loop: true,
-        margin: 20,
+        margin: 40,
         dots: true,
         nav: false,
         smartSpeed: 400,
@@ -426,7 +426,7 @@ $(function () {
                 items: 3
             },
             1000: {
-                items: 8,
+                items: 6,
                 loop: false
             }
         },

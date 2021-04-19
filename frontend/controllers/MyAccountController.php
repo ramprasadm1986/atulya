@@ -8,6 +8,8 @@ use Yii;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\User;
+use common\models\Order;
+
 
 class MyAccountController extends \yii\web\Controller
 {
@@ -36,7 +38,14 @@ class MyAccountController extends \yii\web\Controller
     }
     public function actionIndex()
     {
-        return $this->render('index');
+        $user=Yii::$app->user->identity;
+        
+        
+        $orders=Order::find()->where(['user_id'=>$user->id])->andWhere(['>', 'status',0])->all();
+        return $this->render('index', [
+            'orders' => $orders
+        ]);
+        
     }
 
     public function actionOrders()

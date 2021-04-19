@@ -56,9 +56,9 @@ $CartItems= $cart_obj->getCartAllItems($CartIdentifire);
                      <?= $this->render('_sitemenu.php') ?>
                      
                      <!-- Multi level dropdown end-->
-                     <li class="nav-item"><a class="nav-link" href="<?= Url::to(['site/contact']); ?>">Contact</a></li>
+                     <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/site/contact']); ?>">Contact</a></li>
                      <?php if(!Yii::$app->user->identity): ?>
-					 <li class="nav-item"><a class="nav-link" href="<?= Url::to(['site/login']); ?>">Login / Sign Up</a></li>
+					 <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/site/login']); ?>">Login / Sign Up</a></li>
                      <?php else: ?>
                      <li class="nav-item"><a class="nav-link" href="<?= Url::to(['my-account/index']); ?>">My Account</a></li>
                      <?php endif; ?>
@@ -68,7 +68,7 @@ $CartItems= $cart_obj->getCartAllItems($CartIdentifire);
                     
                     <?php if(Yii::$app->user->identity): ?>
 					 <div class="nav-item dropdown">
-						<a class="dropdown-toggle navbar-icon-link" id="userdetails" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<a class="dropdown-toggle navbar-icon-link" id="userdetails" style="color: #ed8b25;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<i class="fa fa-user-circle-o"></i>
 					    </a>
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userdetails"> 
@@ -82,10 +82,10 @@ $CartItems= $cart_obj->getCartAllItems($CartIdentifire);
                     <?php endif; ?>
                      <!-- Cart Dropdown-->
                      <div class="nav-item dropdown">
-                        <a class="navbar-icon-link d-lg-none" href="cart.html" > 
+                        <a class="navbar-icon-link d-lg-none" href="<?= Url::to(['/cart']);?>"  > 
                         <i class="fa fa-shopping-cart"></i><span class="text-sm ml-2 ml-lg-0 text-uppercase text-sm font-weight-bold d-none d-sm-inline d-lg-none">View cart</span></a>
                         <div class="d-none d-lg-block">
-                           <a class="navbar-icon-link dropdown-toggle" id="cartdetails" href="cart.html" data-target="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#fff;">
+                           <a class="navbar-icon-link dropdown-toggle" id="cartdetails" href="<?= Url::to(['/cart']);?>" data-target="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#fff;">
                               <i class="fa fa-shopping-cart"></i>
                               <div class="navbar-icon-link-badge" id="cart_mini_items"><?=number_format($no_cartitem);?></div>
                            </a>

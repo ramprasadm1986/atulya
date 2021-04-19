@@ -6,8 +6,8 @@
                   <div class="col-lg-4 service-column">
                      <img src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_images/icon1.png"?>"/>
                      <div class="service-text">
-                        <h6 class="text-uppercase">Free shipping &amp; return</h6>
-                        <p class="text-muted font-weight-light text-sm mb-0">Free Shipping over Rs.300</p>
+                        <h6 class="text-uppercase">Shipping At Actual </h6>
+                        <p class="text-muted font-weight-light text-sm mb-0">7 days return policy</p>
                      </div>
                   </div>
                   <div class="col-lg-4 service-column">
@@ -20,7 +20,7 @@
                   <div class="col-lg-4 service-column">
                      <img src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_images/icon3.png"?>"/>
                      <div class="service-text">
-                        <h6 class="text-uppercase">020-800-456-747</h6>
+                        <h6 class="text-uppercase">+91 7682842572</h6>
                         <p class="text-muted font-weight-light text-sm mb-0">24/7 Available Support</p>
                      </div>
                   </div>
@@ -45,7 +45,7 @@
                      <h6 class="text-uppercase text-dark mb-3">Shop</h6>
                      <ul class="list-unstyled">
                         <li> <a class="text-muted" href="#">For Women</a></li>
-                        <li> <a class="text-muted" href="#">For Men</a></li>
+                       
                         <li> <a class="text-muted" href="#">Stores</a></li>
                         <li> <a class="text-muted" href="#">Our Blog</a></li>
                         <li> <a class="text-muted" href="#">Shop</a></li>
@@ -66,7 +66,7 @@
                   </div>
                   <div class="col-lg-4">
                      <h6 class="text-uppercase text-dark mb-3">Daily Offers &amp; Discounts</h6>
-                     <p class="mb-3"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. At itaque temporibus.</p>
+                     <p class="mb-3"> To get daily offers and details please subscribe your email here.</p>
                      <div  id="newsletter-form">
                         <div class="input-group mb-3">
                            <input class="form-control bg-transparent border-secondary border-right-0" placeholder="Your Email Address" aria-label="Your Email Address" type="email">
