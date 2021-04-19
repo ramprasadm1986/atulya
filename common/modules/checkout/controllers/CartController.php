@@ -106,7 +106,7 @@ class CartController extends Controller
 			
 		}
 		$variations=stripcslashes($variations);
-		$cartadded_status = $Cart->addItem($CartIdentifire,$item_id,$variations);
+		$cartadded_status = $Cart->addItem($CartIdentifire,$item_id,$variations,$qty);
 		
 		$cart_updatedata = $Cart->getCartitemdetails($CartIdentifire,$item_id,$variations);
 		

@@ -41,7 +41,7 @@ class CartAddress extends \yii\db\ActiveRecord
             ['email', 'email'],
             [['created_at', 'updated_at'], 'safe'],
             [['address1', 'address2', 'landmark'], 'string'],
-            [['cart_identifire', 'name', 'email', 'country', 'state', 'city', 'zip', 'phone'], 'string', 'max' => 255],
+            [['cart_identifire', 'name', 'email', 'country', 'state', 'city', 'zip'], 'string', 'max' => 255],
             [['cart_identifire'], 'exist', 'skipOnError' => true, 'targetClass' => Cart::className(), 'targetAttribute' => ['cart_identifire' => 'cart_identifire']],
         ];
     }

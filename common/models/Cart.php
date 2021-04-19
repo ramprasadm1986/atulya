@@ -108,14 +108,17 @@ class Cart extends \yii\db\ActiveRecord
     }
     
     
-    public function addItem($CartIdentifire,$item_id,$variations=null){
+    public function addItem($CartIdentifire,$item_id,$variations=null,$qty=false){
 		
+        if(!$qty){
+           $qty=1; 
+        }
         if($variations!="")
             $CartItem=CartItem::find()->where(['cart_identifire'=>$CartIdentifire,'item_id'=>$item_id,'variations'=>$variations])->one();
         else
             $CartItem=CartItem::find()->where(['cart_identifire'=>$CartIdentifire,'item_id'=>$item_id])->one();
 		if($CartItem){
-			$CartItem->qty= $CartItem->qty+1;
+			$CartItem->qty= ($CartItem->qty+$qty)<=5?$CartItem->qty+$qty:5;
 		}
 		else{
 			$Item=Product::find()->where(['id'=>$item_id])->one();
@@ -124,7 +127,7 @@ class Cart extends \yii\db\ActiveRecord
 			$CartItem->item_id=$Item->id;
 			$CartItem->item_name=$Item->name;
             $CartItem->variations=$variations;
-			$CartItem->qty=1;
+			$CartItem->qty=$qty;
             if($Item->IsVariable() && $variations!=""){
                 $CartItem->price=$Item->getCartSalePrice($variations);
                 $CartItem->sell_price=$Item->getCartSalePrice($variations);

@@ -76,7 +76,7 @@ $this->title = $product->name;
                     <div class="row">
                     <div class="col-12 col-lg-6 detail-option mb-5">
                         <label class="detail-option-heading font-weight-bold">Items <span>(required)</span></label>
-                        <input class="form-control detail-quantity" name="items" value="1" type="number">
+                        <input class="form-control detail-quantity" id="item-qty" name="items" value="1" min='1' max='5' step='1' type="number">
                     </div>
                     <div class="col-12 col-lg-6 detail-option mb-5">
                        
@@ -84,7 +84,7 @@ $this->title = $product->name;
                     $CPAttribute_ids=[];
                     foreach($product->cPAttributes as $CPAttribute): ?>
                    <?php $CPAttribute_ids[]='attribute_id'.$CPAttribute->id;?>
-                   <label class="detail-option-heading font-weight-bold">Size <span>(required)</span></label>
+                   <label class="detail-option-heading font-weight-bold"><?= $CPAttribute->name; ?> <span>(required)</span></label>
                     <?= Html::dropDownList($CPAttribute->name, null,
                     ArrayHelper::map(CatalogProductAttributesOption::find()->where(['attribute_id'=>$CPAttribute->id])->all(), 'name', 'name'),['id'=>'attribute_id'.$CPAttribute->id, 'class'=> 'form-control','prompt' =>'Select '.$CPAttribute->name,'onchange'=>"SwitchPrice();"]) ?>
                     <?php endforeach;?>
@@ -97,7 +97,7 @@ $this->title = $product->name;
                     </div>
                     <ul class="list-inline">
                       <li class="list-inline-item">
-                        <button class="btn btn-info btn-lg mb-1" onclick="addtoCart('<?=Url::to(['/cart/add'])?>',<?=$product->id?>,true)"> <i class="fa fa-shopping-cart mr-2"></i>Add to Cart</button>
+                        <button class="btn btn-info btn-lg mb-1" onclick="addtoCart('<?=Url::to(['/cart/add'])?>',<?=$product->id?>,true,true)"> <i class="fa fa-shopping-cart mr-2"></i>Add to Cart</button>
                       </li>
                       <li class="list-inline-item"><a class="btn btn-outline-secondary mb-1" href="<?= Url::to(['/checkout/onepage']); ?>"> <i class="far fa-heart mr-2"></i>Proceed to Checkout</a></li>
                       

@@ -43,7 +43,7 @@ function SwitchPrice(){
 
 
 
-function addtoCart(url,itemid,variation=false){
+function addtoCart(url,itemid,variation=false,qty=false){
     $combination="";
     if(variation){
         $valid=true;       
@@ -64,13 +64,21 @@ function addtoCart(url,itemid,variation=false){
          }
          
     }
+    if(qty){
+        
+        var Qt=$("#item-qty").val();
+    }
+    else{
+        var Qt=1;
+    }
     
 	$.ajax({
 		url: url,
 		type: "POST",
 		data: {
 			item_id: itemid,
-            variations:$combination
+            variations:$combination,
+            qty:Qt
            
 		},
 		beforeSend:function(json)

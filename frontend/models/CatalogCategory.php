@@ -119,7 +119,7 @@ class CatalogCategory extends \yii\db\ActiveRecord
 				
 					$RootNode=[];
 					$RootNode=[
-						'url' => Url::to(['/category/'.$category->slug]),
+						'url' => Url::to(['/category/'.$root->slug]),
 						'label' => $root->name,
 						'itemsOptions'=>['class'=>'dropdown-submenu'],
 						'submenuOptions'=>['class'=>'dropdown-menu'],

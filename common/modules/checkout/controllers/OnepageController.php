@@ -395,7 +395,7 @@ class OnepageController extends Controller
     $transactionRequestBean->merchantTxnRefNumber =$order->order_identifire."-".$Cart->cart_identifire;
     $transactionRequestBean->amount = $order->order_total;
     $transactionRequestBean->currencyCode = Yii::getAlias('@currencyCode');
-    $transactionRequestBean->returnURL = 'https://www.atulyakarigari.com/checkout/onepage/paynimoreturn';
+    $transactionRequestBean->returnURL = Yii::getAlias('@frontendUrl').'/checkout/onepage/paynimoreturn';
     $transactionRequestBean->s2SReturnURL = "https://tpslvksrv6046/LoginModule/Test.jsp";
     $transactionRequestBean->shoppingCartDetails = "FIRST_". $order->order_total . '_0.0';
     $transactionRequestBean->txnDate = date('d-m-Y');;

@@ -14,6 +14,7 @@ $CartItems= $cart_obj->getCartAllItems($CartIdentifire);
 ?>
 
 
+
 <header class="header">
          <!-- Top Bar-->
          <div class="top-bar" style="display:none;">

@@ -1,6 +1,6 @@
 <?php
 use yii\helpers\Url;
-
+use common\widgets\Alert;
 ?>
 
  <?php
@@ -9,6 +9,7 @@ use yii\helpers\Url;
  
  $this->title = 'Atulya Karigari';
  ?>
+
  <div style="width:100%; height:100%; float:left; background:rgba(0, 0, 0, 0.53); position:fixed; z-index:9999; display:none; " id="subscribebox">
 		<div class="mobpopup"  style=" width: 40%;
   height: 300px;
@@ -21,16 +22,16 @@ use yii\helpers\Url;
   border-radius: 6px; ">
   <span><i class="fa fa-close" alt="close" style="float:right; color:#333; padding:5px; cursor:pointer; margin-top:-20px; margin-right:-20px;" onclick="$('#subscribebox').hide();"></i></span>
   
-  <h3 style="font-size:30px;color:#333; font-family: "HK Grotesk",sans-serif; line-height:2;letter-spacing: 1px;"><img src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/maintainance.png"?>" height="100"/>
+  <h3 style="font-size:30px;color:#333; font-family: 'HK Grotesk',sans-serif; line-height:2;letter-spacing: 1px;"><img src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/maintainance.png"?>" height="100"/>
   <br/>
   Hey! We are<br><b>currently undergoing maintenance </b></h3>
   
-  <p style="color:#f0802e;  font-size:20px; text-align:center; margin-top:30px;font-family: "HK Grotesk",sans-serif; letter-spacing:1px;">please excuse occasional issues and downtimes.</p>
+  <p style="color:#f0802e;  font-size:20px; text-align:center; margin-top:30px;font-family: 'HK Grotesk',sans-serif; letter-spacing:1px;">please excuse occasional issues and downtimes.</p>
   <br>
 
 </div>
 </div>
-	
+	 
 <?php if (Yii::$app->hasModule('banner')): ?>
     <section class="home-full-slider-wrapper mb-10px">
          <!-- Hero Slider-->
@@ -66,10 +67,17 @@ use yii\helpers\Url;
          </div>
     </section>
 <?php endif; ?>
-
-
-
-    <section style="margin-top:60px;">
+   
+   
+           
+   <section style="margin-top:10px;">
+         
+                
+            <?= Alert::widget() ?>
+        
+    </section>
+    <section style="margin-top:50px;">
+         
         <div class="container-fluid px-5px">
             <div class="row mx-0">
                <div class="col-lg-4 mb-10px px-5px">

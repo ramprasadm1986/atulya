@@ -76,6 +76,7 @@ class CatalogProduct extends \yii\db\ActiveRecord
             [['special_price_from', 'special_price_to', 'new_from', 'new_to', 'created_at', 'updated_at'], 'safe'],
             [['type', 'length_class', 'weight_class'], 'string', 'max' => 10],
             [['name', 'sku', 'slug', 'tax_type', 'tax_class'], 'string', 'max' => 255],
+            [['tax_type','tax_rule_id'],'required','on'=>'reqtax'],
             [['sku'], 'unique'],
             ['slug', 'filter', 'filter' => [$this, 'sanitizeSlug']],
             [['slug'], 'match', 'pattern' => '/^[a-z0-9][a-z0-9-]+$/','message' => 'SLUG can only contain alphanumeric characters and dashes. All are in lower case and must start with characters.'],
@@ -196,5 +197,19 @@ class CatalogProduct extends \yii\db\ActiveRecord
     public static function find()
     {
         return new \common\models\query\CatalogProductQuery(get_called_class());
+    }
+    
+    public static function getProducts(){
+        
+        $data= self::find()->where(['status'=>1])->asArray()->all();
+        
+        $fdata=[];
+        
+        foreach($data as $d){
+            $d['value']=$d['name'];
+            $fdata[]=$d;
+        }
+        
+        return $fdata;
     }
 }

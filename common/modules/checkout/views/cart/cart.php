@@ -136,10 +136,11 @@ color: #555;}
 		?>
 			<div class="row">
 			<p>Your shopping cart is empty...</p>
-			
+			<?php echo "ddf"; var_dump( Yii::$app->request->referrer);?>
 			</div>
 			<div class="buttons">
 				<div class="pull-left">
+                
 					<a class="btn btn-default" href="<?= Url::to(Yii::$app->request->referrer);?>">
 						<i class="fa fa-caret-right"></i>&nbsp;Continue Shopping
 					</a>
@@ -171,11 +172,12 @@ function cartQtyupdate(type,id,cart_id,variations){
 					type: "POST",
 					data: {
 						item_id:id,
-						variations:variations						
+						variations:variations,
+                        qty:1
 					},
 					beforeSend:function(json)
 					{ 
-						//SimpleLoading.start('hourglass'); 
+						SimpleLoading.start('ring'); 
 					},
 					success: function (result) {
 						//console.log(result);
@@ -204,7 +206,7 @@ function cartQtyupdate(type,id,cart_id,variations){
 					},
 					complete:function(json)
 					{
-						//SimpleLoading.stop();
+						SimpleLoading.stop();
 					},
 			});
 		}else if(type == 0){
@@ -217,7 +219,7 @@ function cartQtyupdate(type,id,cart_id,variations){
 					},
 					beforeSend:function(json)
 					{ 
-						//SimpleLoading.start('hourglass'); 
+						SimpleLoading.start('ring'); 
 					},
 					success: function (result) {
 						if(result.status == 1){
@@ -250,7 +252,7 @@ function cartQtyupdate(type,id,cart_id,variations){
 					},
 					complete:function(json)
 					{
-						//SimpleLoading.stop();
+						SimpleLoading.stop();
 					},
 			});
 		}else if(type==2){
@@ -263,7 +265,7 @@ function cartQtyupdate(type,id,cart_id,variations){
 					},
 					beforeSend:function(json)
 					{ 
-						//SimpleLoading.start('hourglass'); 
+						SimpleLoading.start('ring'); 
 					},
 					success: function (result) {
 						var cart_subtotal_excl_tax = result.cart_updatedata.cart_subtotal_excl_tax;
@@ -282,7 +284,7 @@ function cartQtyupdate(type,id,cart_id,variations){
 					},
 					complete:function(json)
 					{
-						//SimpleLoading.stop();
+						SimpleLoading.stop();
 					},
 			});
 			

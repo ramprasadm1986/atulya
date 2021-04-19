@@ -61,13 +61,21 @@ class ManageProductController extends Controller
         $model = new CatalogProduct();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            
+            $categories = explode(",",$model->categories);
+            if (!in_array(1, $categories)) {
+                array_unshift($categories,1);
+                $model->categories=implode(",",$categories );
+                $model->save();
+            }
+            $this->generateProductJson();
             if(Yii::$app->request->post()['saveandcontinue'])
                 return $this->redirect(['update', 'id' => $model->id]);
             else
                 return $this->redirect(['index']);
         }
-
+        if (Yii::$app->hasModule('tax')){
+        $model->scenario = 'reqtax';
+        }
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -115,8 +123,16 @@ class ManageProductController extends Controller
 
             $valid = $model->validate();
             
-            if($valid)
+            if($valid){
                 $model->save();
+                $categories = explode(",",$model->categories);
+                if (!in_array(1, $categories)) {
+                    array_unshift($categories,1);
+                    $model->categories=implode(",",$categories );
+                    $model->save();
+                }
+                
+            }
             
             if($model->type=="variable"){
                 // reset
@@ -278,7 +294,7 @@ class ManageProductController extends Controller
                         if ($flag) {
 
                             $transaction->commit();
-
+                            $this->generateProductJson();
                            if(Yii::$app->request->post()['saveandcontinue'])
                                 return $this->redirect(['update', 'id' => $model->id]);
                             else
@@ -309,6 +325,10 @@ class ManageProductController extends Controller
             
         }
         
+        if (Yii::$app->hasModule('tax')){
+            $model->scenario = 'reqtax';
+        }
+        
         return $this->render('update', [
 
             'model' => $model,
@@ -333,7 +353,7 @@ class ManageProductController extends Controller
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-
+        $this->generateProductJson();
         return $this->redirect(['index']);
     }
 
@@ -352,4 +372,15 @@ class ManageProductController extends Controller
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
+    
+    protected function generateProductJson(){
+        
+        $jsonfile= Yii::getAlias('@storage/product.json');
+         
+        $product_search=json_encode(CatalogProduct::getProducts());
+        $fp = fopen($jsonfile, 'w+');
+        fwrite($fp, $product_search);
+        fclose($fp);     
+         
+    } 
 }

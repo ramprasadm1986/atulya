@@ -74,6 +74,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        
         return $this->render('index');
     }
 	 public function actionCheckout()
@@ -94,6 +95,7 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            Yii::$app->session->setFlash('success', 'You are logged in now.');
             return $this->goBack();
         } else {
             $model->password = '';
@@ -123,6 +125,7 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
+       
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
@@ -133,6 +136,7 @@ class SiteController extends Controller
 
             return $this->refresh();
         } else {
+            
             return $this->render('contact', [
                 'model' => $model,
             ]);
@@ -157,7 +161,7 @@ class SiteController extends Controller
     public function actionSignup()
     {
         $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post()) && $model->signup()) {
+        if ($model->load(Yii::$app->request->post()) && $model->signup(true)) {
             Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
             return $this->goHome();
         }
