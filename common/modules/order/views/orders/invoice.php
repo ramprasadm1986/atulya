@@ -90,7 +90,7 @@ $this->title = $model->order_identifire;
 	<div style="width:100%; height:auto; float:left; margin-top:10px; margin-bottom:10px;">
 		<div style="width:90%; float:left; margin-left:5%; border:1px solid #000; height:a;">
 			<div style="background:#333; color:#fff; text-align:center; width:100%; float:left;  height:24px; padding-top:4px; font-weight:bold;">
-				<div style="width:25%; float:left; color:#fff;">
+				<div style="width:30%; float:left; color:#fff;">
 					Description
 				</div>
 				<div style="width:15%; float:left; color:#fff;">
@@ -99,20 +99,18 @@ $this->title = $model->order_identifire;
 				<div style="width:15%; float:left; color:#fff;">
 					QTY
 				</div>
-				<div style="width:15%; float:left; color:#fff;">
+				<div style="width:20%; float:left; color:#fff;">
 					PRICE
 				</div>
-				<div style="width:15%; float:left; color:#fff;">
-					VAT
-				</div>
-				<div style="width:15%; float:left; color:#fff;">
+				
+				<div style="width:19%; float:left; color:#fff;">
 					TOTAL
 				</div>
 			</div>
             <?php foreach($model->orderItems as $item): ?>
 			<div style="width:100%; float:left; height:auto; text-align:center;">
 
-				<div style="width:25%; float:left; line-height:10px; min-height:60px;  border-right:1px solid #000;">
+				<div style="width:30%; float:left; line-height:10px; min-height:60px;  border-right:1px solid #000;">
 					<br />
 					 <?= $item->item_name;?>
                      <?php if($item->variations):?>
@@ -139,7 +137,7 @@ $this->title = $model->order_identifire;
                       &nbsp;
                      <?php endif;?>
 				</div>
-				<div style="width:15%; float:left; line-height:10px; min-height:60px;  border-right:1px solid #000;  text-align:right;">
+				<div style="width:20%; float:left; line-height:10px; min-height:60px;  border-right:1px solid #000;  text-align:right;">
 					<br />
 					<?= Yii::getAlias('@currency').$item->sell_price;?>
                     <?php if($item->variations):?>
@@ -149,17 +147,8 @@ $this->title = $model->order_identifire;
                       &nbsp;
                      <?php endif;?>
 				</div>
-				<div style="width:15%; float:left; line-height:10px; min-height:60px;  border-right:1px solid #000;  text-align:right;">
-					<br />
-					<?= Yii::getAlias('@currency').$item->tax;?>
-                    <?php if($item->variations):?>
-                      <br />
-                      &nbsp;
-                      <br />
-                      &nbsp;
-                     <?php endif;?>
-				</div>
-				<div style="width:14%; float:left; line-height:10px; min-height:60px; text-align:right;">
+				
+				<div style="width:19%; float:left; line-height:10px; min-height:60px; text-align:right;">
 					<br />
 					<?= Yii::getAlias('@currency').$item->row_total;?>
                     <?php if($item->variations):?>
