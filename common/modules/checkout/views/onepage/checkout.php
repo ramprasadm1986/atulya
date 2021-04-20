@@ -140,7 +140,7 @@ color: #555;}
         
         </div>
         <div class="col-lg-4">
-        <div class="block mb-5">
+        <div class="block mb-5" style="padding:10px;">
            <div class="form-group col-md-12 col-sm-12 col-xs-12">
                <div class="block-header">
                 <h6 class="text-uppercase mb-0">Order Summary</h6>
@@ -154,7 +154,7 @@ color: #555;}
                     <div class="col-md-2 col-sm-2 col-xs-12" style="padding-right:0px;">
                     <img class="pull-left" src="<?= $CartItem['image'];?>" width="100%" />
                     </div>
-                    <div class="col-md-5 col-sm-5 col-xs-12" style="padding-right:0px;">
+                    <div class="col-md-4 col-sm-5 col-xs-12" style="padding-right:0px;">
                     <label class="control-label"><?= $CartItem['item_name'];?></label>
                     
                     <?php if($CartItem['variations']!="") :
@@ -175,7 +175,7 @@ color: #555;}
                         </dl>
                     <?php endif;?>
                     </div>
-                    <div class="col-md-5 col-sm-5 col-xs-12">
+                    <div class="col-md-6 col-sm-5 col-xs-12" style="padding-right:0px;">
                     <strong class="pull-right"><i><?=$CartItem['qty']?> X <?= Yii::getAlias('@currency').$CartItem['sell_price']?> = <?=Yii::getAlias('@currency').$CartItem['row_total']?></i></strong>
                     </div>
                     <div class="clearfix"></div>

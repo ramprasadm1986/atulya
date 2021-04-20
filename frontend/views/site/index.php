@@ -288,10 +288,10 @@ use common\widgets\Alert;
                   <div class="mb-30px">
                      <a href="post.html"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home3.jpg"?>" alt="..."></a>
                      <div class="fashionbox">
-                        <p class="text-uppercase " >Handcrafted clutch bag made of patola fabric. Club it with your evening attire or style the strap with your kinda wear.<br/>
+                        <p class="text-uppercase " >CLUTCH BAG</p>
+                        <p class="my-2">Handcrafted clutch bag made of patola fabric. Club it with your evening attire or style the strap with your kinda wear.<br/>
 
-                            You imagine we craft! </p>
-                        <h5 class="my-2"><a class="text-dark" href="post.html" style="display:none;">Pellentesque habitant morbi          </a></h5>
+                            You imagine we craft!      </p>
                         <p class="text-gray-500 text-sm my-3" style="display:none;"><i class="far fa-clock mr-2" ></i>January 16, 2016</p>
                       
                        
@@ -306,7 +306,9 @@ use common\widgets\Alert;
                   <div class="mb-30px">
                      <a href="post.html"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home4.jpg"?>" alt="..."></a>
                      <div class="fashionbox">
-                        <p class="text-uppercase ">Embrace your traditional wear with handmade potli bags. Blend of trendy and traditional both. </p>
+                         <p class="text-uppercase " >POTLI BAG</p>
+                         
+                       <p class="my-2">Embrace your traditional wear with handmade potli bags. Blend of trendy and traditional both. </p>
                        
                        
                         <a class="btn btn-link text-gray-700 pl-0" href="post.html" style="display:none;">Read more<i class="fa fa-arrow-right ml-2"></i></a>
@@ -321,7 +323,8 @@ use common\widgets\Alert;
                   <div class="mb-30px">
                      <a href="post.html"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home5.jpg"?>" alt="..."></a>
                      <div class="fashionbox ">
-                        <p class="text-uppercase ">Stylish Mojri for your summer wears. Style with a chicken kurta or khadi jacket. </p>
+                          <p class="text-uppercase " >MOJRI</p>
+                        <p class="my-2">Stylish Mojri for your summer wears. Style with a chicken kurta or khadi jacket. </p>
                        
                      </div>
                   </div>

@@ -9,7 +9,7 @@ use yii\helpers\Url;
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
-$this->title = 'Tarck Order';
+$this->title = 'Track Order';
 ?>
 
 <section class="hero">

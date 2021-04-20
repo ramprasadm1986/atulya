@@ -31,17 +31,7 @@
          <div class="py-6 bg-gray-300 text-muted footerimg">
             <div class="container">
                <div class="row">
-                  <div class="col-lg-4 mb-5 mb-lg-0">
-                     <div class="font-weight-bold text-uppercase text-lg text-dark mb-3">Social Information<span class="text-primary">.</span></div>
-                   
-                     <ul class="list-inline">
-                       
-                        <li class="list-inline-item"><a class="text-muted text-hover-primary" href="https://www.facebook.com/atulyakarigari" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li class="list-inline-item"><a class="text-muted text-hover-primary" href="https://www.instagram.com/atulyakarigariindia" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a></li>
-                         <li class="list-inline-item"><a class="text-muted text-hover-primary" href="#" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></li>
-                     </ul>
-                  </div>
-                  <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
+                   <div class="col-lg-2 col-md-6 mb-5 mb-lg-0 col-6">
                      <h6 class="text-uppercase text-dark mb-3">Shop</h6>
                      <ul class="list-unstyled">
                         <li> <a class="text-muted" href="#">For Women</a></li>
@@ -51,7 +41,7 @@
                         <li> <a class="text-muted" href="#">Shop</a></li>
                      </ul>
                   </div>
-                  <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
+                  <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 col-6">
                      <h6 class="text-uppercase text-dark mb-3">Information</h6>
                      <ul class="list-unstyled">
                         <li><a class="text-muted" href="/cms-page/about">About Us</a></li>
@@ -64,8 +54,30 @@
     <li><a class="text-muted" href="/cms-page/payment">Payment Procedure</a></li>
                      </ul>
                   </div>
-                  <div class="col-lg-4">
-                     <h6 class="text-uppercase text-dark mb-3">Daily Offers &amp; Discounts</h6>
+                  <div class="col-lg-3 mb-5 mb-lg-0">
+                       <div class="font-weight-bold text-uppercase text-lg text-dark mb-3">Get In Touch<span class="text-primary">.</span></div>
+                      <p>Atulya Karigari India<br/>
+C/O Annapurna Finance Pvt Ltd<br/>
+Plot No.- 1215/1401, Khandagiri Bari,<br/>
+In front of Jayadev Vatika,<br/>
+BBSR- 751030, Odisha (India)<br/>
+Phone: +91 7682842572<br/>
+Email: atulyakarigariindia@gmail.com</p>
+                     <div class="font-weight-bold text-uppercase text-lg text-dark mb-3">Social Information<span class="text-primary">.</span></div>
+                   
+                     <ul class="list-inline">
+                       
+                        <li class="list-inline-item"><a class="text-muted text-hover-primary" href="https://www.facebook.com/atulyakarigari" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a class="text-muted text-hover-primary" href="https://www.instagram.com/atulyakarigariindia" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a></li>
+                         <li class="list-inline-item"><a class="text-muted text-hover-primary" href="#" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></li>
+                     </ul>
+                  </div>
+                   <div class="col-lg-4">
+                     <h6 class="text-uppercase text-dark mb-3">Registered Address</h6>
+                     <p class="mb-3"> Plot No 1215/1511;<br/>
+Khandagiri Bari, Ghatikiya, Khordha,<br/>
+Bhubaneswar-751030 Odisha (India)</p>
+<h6 class="text-uppercase text-dark mb-3">Daily Offers &amp; Discounts</h6>
                      <p class="mb-3"> To get daily offers and details please subscribe your email here.</p>
                      <div  id="newsletter-form">
                         <div class="input-group mb-3">
@@ -75,7 +87,10 @@
                            </div>
                         </div>
                      </div>
+                    
                   </div>
+                  
+                  
                </div>
             </div>
          </div>

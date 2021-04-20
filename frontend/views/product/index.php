@@ -31,7 +31,7 @@ $this->title = $product->name;
             <div class="col-lg-6">
                 <div class="row">
                        <?php foreach($product->getGalleryImages() as $image) : ?>
-                    <div class="col-md-6" style="padding:3px;">
+                    <div class="col-md-6 col-6" style="padding:3px;">
                         <img src="<?= $image;?>" style="width:100%; height:auto;"/>
                     </div>
                       <?php endforeach;?>
