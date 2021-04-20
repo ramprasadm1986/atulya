@@ -160,14 +160,14 @@ use common\widgets\Alert;
          <div class="container-fluid">
             <div class="row">
                <div class="col-xl-8 mx-auto text-center mb-5">
-                  <h3 class="text-uppercase">Online Sarees Shopping with Worldwide Delivery</h3>
+                  <h3 class="text-uppercase">Handloom Saga Winning Hearts Again</h3>
                </div>
             </div>
             <div class="row">
                <!-- post-->
                <div class="col-lg-4 col-12">
                   <div class="mb-30px">
-                     <a href="#"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home1.jpg"?>" alt="..."></a>
+                     <a href="#"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/handloom1.jpg"?>" alt="..."></a>
                      
                   </div>
                </div>
@@ -177,11 +177,11 @@ use common\widgets\Alert;
                   <div class="mb-30px">
                     
                      <div class="mt-3">
-                        <small class="text-uppercase text-muted">VIEW More Handloom Silk Sarees</small>
-                        <h5 class="my-2"><a class="text-dark font-weight-bold" href="post.html">Direct from Weavers </a></h5>
+                        <small class="text-uppercase text-muted" style="display:none;">VIEW More Handloom Silk Sarees</small>
+                        <h5 class="my-2"><a class="text-dark font-weight-bold" href="post.html" style="display:none;">Direct from Weavers </a></h5>
                       
-                        <p class="my-2" style="font-size:17px;">More then 5000 designs in sarees are available in stock. A range of pure silk sarees is available at your fingertips for you to explore and choose. Shop from the comforts of your surrounding and look for what you want. No bargaining or haggling, but certainly various options for online sari shopping in India, such as Cash on Delivery, a 2-day returns guarantee and so on!</p>
-                        <a class="btn btn-link text-gray-700 pl-0" href="post.html">More Handloom Sarees Online<i class="fa fa-arrow-right ml-2"></i></a>
+                        <p class="my-2" style="font-size:17px;">The epitome of a ruling Indian textile with an inheritance of rich heritage and cultural beliefs, Atulya Karigari join hands with the weavers to make precious and pure products without alterations. The exquisite pieces of brocade silks will glorify the maximum intricacy being used to sprinkle a real glow on artisan’s hard work and cultural values. Sambalpuri handloom artisans presents a speckled map that manifests the diversity in ethnic and geographical aesthetic patterns. This holistic approach from our end has brought dynamic changes by enhancing the willpower and team spirit of women weavers and their families.</p>
+                        <a class="btn btn-link text-gray-700 pl-0" href="post.html" style="display:none;">More Handloom Sarees Online<i class="fa fa-arrow-right ml-2"></i></a>
                      </div>
                   </div>
                </div>
@@ -189,7 +189,7 @@ use common\widgets\Alert;
                <!-- post-->
                <div class="col-lg-4 col-12">
                   <div class="mb-30px">
-                     <a href="#"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home2.jpg"?>" alt="..."></a>
+                     <a href="#"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/handloom2.jpg"?>" alt="..."></a>
                     
                   </div>
                </div>
@@ -278,7 +278,7 @@ use common\widgets\Alert;
          <div class="container blogcontainer" style="margin-top:0px;">
             <div class="row">
                <div class="col-xl-8 mx-auto text-center mb-5">
-                  <h3 class="text-uppercase">Fashion For Everyone</h3>
+                  <h3 class="text-uppercase">Style With Elegance</h3>
                </div>
             </div>
             <div class="row">
@@ -288,11 +288,13 @@ use common\widgets\Alert;
                   <div class="mb-30px">
                      <a href="post.html"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home3.jpg"?>" alt="..."></a>
                      <div class="fashionbox">
-                        <small class="text-uppercase text-muted">Fashion and style </small>
-                        <h5 class="my-2"><a class="text-dark" href="post.html">Pellentesque habitant morbi          </a></h5>
-                        <p class="text-gray-500 text-sm my-3"><i class="far fa-clock mr-2"></i>January 16, 2016</p>
-                        <p class="my-2 text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Aenean ultricies mi vitae est. </p>
-                        <a class="btn btn-link text-gray-700 pl-0" href="post.html">Read more<i class="fa fa-arrow-right ml-2"></i></a>
+                        <p class="text-uppercase " >Handcrafted clutch bag made of patola fabric. Club it with your evening attire or style the strap with your kinda wear.<br/>
+
+                            You imagine we craft! </p>
+                        <h5 class="my-2"><a class="text-dark" href="post.html" style="display:none;">Pellentesque habitant morbi          </a></h5>
+                        <p class="text-gray-500 text-sm my-3" style="display:none;"><i class="far fa-clock mr-2" ></i>January 16, 2016</p>
+                      
+                       
                      </div>
                   </div>
                   
@@ -304,11 +306,10 @@ use common\widgets\Alert;
                   <div class="mb-30px">
                      <a href="post.html"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home4.jpg"?>" alt="..."></a>
                      <div class="fashionbox">
-                        <small class="text-uppercase text-muted">Fashion and style </small>
-                        <h5 class="my-2"><a class="text-dark" href="post.html">Best books about Fashion          </a></h5>
-                        <p class="text-gray-500 text-sm my-3"><i class="far fa-clock mr-2"></i>January 16, 2016</p>
-                        <p class="my-2 text-muted">Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.  Mauris placerat eleifend leo.</p>
-                        <a class="btn btn-link text-gray-700 pl-0" href="post.html">Read more<i class="fa fa-arrow-right ml-2"></i></a>
+                        <p class="text-uppercase ">Embrace your traditional wear with handmade potli bags. Blend of trendy and traditional both. </p>
+                       
+                       
+                        <a class="btn btn-link text-gray-700 pl-0" href="post.html" style="display:none;">Read more<i class="fa fa-arrow-right ml-2"></i></a>
                      </div>
                   </div>
                   
@@ -320,11 +321,8 @@ use common\widgets\Alert;
                   <div class="mb-30px">
                      <a href="post.html"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home5.jpg"?>" alt="..."></a>
                      <div class="fashionbox ">
-                        <small class="text-uppercase text-muted">Fashion and style </small>
-                        <h5 class="my-2"><a class="text-dark" href="post.html">Best books about Fashion          </a></h5>
-                        <p class="text-gray-500 text-sm my-3"><i class="far fa-clock mr-2"></i>January 16, 2016</p>
-                        <p class="my-2 text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.  Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                        <a class="btn btn-link text-gray-700 pl-0" href="post.html">Read more<i class="fa fa-arrow-right ml-2"></i></a>
+                        <p class="text-uppercase ">Stylish Mojri for your summer wears. Style with a chicken kurta or khadi jacket. </p>
+                       
                      </div>
                   </div>
                   
