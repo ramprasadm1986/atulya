@@ -344,7 +344,7 @@ use common\widgets\Alert;
             </div>
          </div>
     </section>
-  <section class="py-6 brands">
+  <section class="py-6 brands" style="display:none;">
          <div class="container-fluid blogcontainer" style="margin-top:0px;">
             <h4 class="text-uppercase text-center mb-5">Our Clients</h4>
             <!-- Brands Slider-->

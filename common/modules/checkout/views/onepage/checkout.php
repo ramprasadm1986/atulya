@@ -24,7 +24,7 @@ table tr th{background:#2a5b86;color:#fff; font-weight:normal;}
 table tr td{vertical-align:middle !important;font-size: 16px;
 color: #555;}
 .delivery_address {line-height:1.7; color:#666;}
-.checkout-item{padding:10px;}
+.checkout-item{padding:2px;}
 .product-name{padding-left:10px;}
 .select2-container--krajee .select2-selection--single {height:40px;}
 </style>
@@ -184,7 +184,7 @@ color: #555;}
            
             <?php endforeach;?>
             <hr>
-            <div class="row" style="display:none;">
+            <div class="row" >
              <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="form-group">
                         <div class="pull-left">
@@ -196,6 +196,7 @@ color: #555;}
                     </div> 
             </div>
           </div>
+          <hr>
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
             
@@ -206,7 +207,7 @@ color: #555;}
            </div>
            <div class="row">
             <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                
+                <p>Order Summary</p>
                     <div class="form-group">
                         <div class="pull-left">
                         <label class="control-label"><i>Sub Total</i></label>
