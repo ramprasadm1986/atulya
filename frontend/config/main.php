@@ -46,6 +46,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '<controller:[\w\-]+>/<action:[\w\-]+>/<id:\d+>' => '<controller>/<action>',
                 'category/index' => 'category/index',
                 'category/<slug>' => 'category/index',
                 'cms-page/<slug>' => 'cms-page/index',

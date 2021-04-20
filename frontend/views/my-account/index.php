@@ -6,6 +6,7 @@
 */
 /* @var $this yii\web\View */
 use yii\helpers\Url;
+use yii\helpers\Html;
 $this->title = 'My Account';
 
 ?>
@@ -14,7 +15,7 @@ $this->title = 'My Account';
     <!-- Breadcrumbs -->
         <ol class="breadcrumb justify-content-center">
            <li class="breadcrumb-item"><a href="<?= Url::home(); ?>">Home</a></li>
-           <li class="breadcrumb-item active">Orders       </li>
+           <li class="breadcrumb-item active">Orders</li>
         </ol>
         <!-- Hero Content-->
         <div class="hero-content pb-5 text-center">
@@ -37,6 +38,7 @@ $this->title = 'My Account';
                         <th class="py-2 text-uppercase text-sm">Date</th>
                         <th class="py-2 text-uppercase text-sm">Total</th>
                         <th class="py-2 text-uppercase text-sm">Status</th>
+                        <th class="py-2 text-uppercase text-sm">Action</th>
                         
                     </tr>
                 </thead>
@@ -48,6 +50,24 @@ $this->title = 'My Account';
                         <td class="py-2 align-middle"><?= date("d/m/Y",strtotime($order->created_at)); ?></td>
                         <td class="py-2 align-middle"><?=Yii::getAlias('@currency');?> <?= $order->order_total ?></td>
                         <td class="py-2 align-middle"><span class="badge p-2 text-uppercase badge-info"><?= ucfirst($order->order_status); ?></span></td>
+                        <td class="py-2 align-middle"><a href="<?= Url::to(['/my-account/orders/'.$order->id]); ?>"> <span class="badge p-2 text-uppercase badge-info">View</span></a>
+                        <?php if($order->status==1){ ?>
+                        <?= Html::a('<span class="badge p-2 text-uppercase badge-info">Track</span>', ['/site/trackorder'], [
+
+                        'data'=>[
+
+                            'method' => 'post',
+
+                           
+
+                            'params'=>['DynamicModel[order_id]'=>$order->order_identifire],
+
+                        ]
+
+                    ]) ?>
+                        <?php }?>
+                        
+                        </td>
                        
                     </tr>
                     <?php } ?>
@@ -55,32 +75,9 @@ $this->title = 'My Account';
             </table>
         </div>
         <!-- Customer Sidebar-->
-        <div class="col-xl-3 col-lg-4 mb-5">
-            <div class="customer-sidebar card border-0"> 
-                <div class="customer-profile">
-                    <a class="d-inline-block" href="<?= Url::to(['my-account/index']); ?>">
-                        <img class="img-fluid rounded-circle customer-image" src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_images/avatar.jpg";?>">
-                    </a>
-                    <h5><?= Yii::$app->user->identity->username;?></h5>
-                    <p class="text-muted text-sm mb-0">&nbsp;</p>
-                </div>
-                <nav class="list-group customer-nav">
-                    <a class="active list-group-item d-flex justify-content-between align-items-center" href="<?= Url::to(['my-account/index']); ?>">
-                        <span><i class="fa fa-shopping-cart"></i> Orders</span>
-                        <!--div class="badge badge-pill badge-light font-weight-normal px-3">&nbsp;</div-->
-                    </a>
-                    <a class="list-group-item d-flex justify-content-between align-items-center" href="#">
-                        <span><i class="fa fa-user-circle-o"></i> Profile</span>
-                    </a>
-                    <a class="list-group-item d-flex justify-content-between align-items-center" href="#">
-                        <span><i class="fa fa-map"></i> Addresses</span>
-                    </a>
-                    <a class="list-group-item d-flex justify-content-between align-items-center" href="<?= Url::to(['site/logout']);?>" data-method="post">
-                        <span><i class="fa fa-sign-out"></i>Log out</span>
-                    </a>
-                </nav>
-            </div>
-        </div>
+        
+        <?= $this->render('usermenu');?>
+        
         <!-- /Customer Sidebar-->
     </div>
 </div>

@@ -48,9 +48,10 @@ class MyAccountController extends \yii\web\Controller
         
     }
 
-    public function actionOrders()
+    public function actionOrders($id)
     {
-        return $this->render('orders');
+        $order=Order::find()->where(['id'=>$id])->andWhere(['>', 'status',0])->one();
+        return $this->render('orders',['order'=>$order]);
     }
 
     public function actionProfile()

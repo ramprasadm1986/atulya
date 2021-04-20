@@ -53,12 +53,35 @@ $this->params['breadcrumbs'][] = $this->title;
 								<th scope="row">Contact No</th>
 								<td><?= $model->orderAddresses[0]->phone;; ?></td>
 							</tr>
+                            <tr>
+								<th scope="row">Is Guest</th>
+								<td><?= $model->order_user_type?"No":"Yes"; ?></td>
+							</tr>
 														
 						</tbody>
 					</table>					
 					<?php Panel::end() ?>
+                    <?php 
+						Panel::begin(
+							[
+								'header' => Html::encode(Yii::t('backend', 'Payment Channel')),
+								'icon' => 'users',
+							]
+						);
+                        
+                        
+					?>
+					<table class="table">
+						<tbody>
+							<tr>
+								<th scope="row">Gateway</th>
+								<td></td>
+							</tr>
+                        </tbody>
+					</table>					
+					<?php Panel::end() ?>
 			</div>
-			<div class="form-group col-md-4 col-sm-4 col-xs-12">
+			<div class="form-group col-md-8 col-sm-8 col-xs-12">
 					<?php 
 						Panel::begin(
 							[
@@ -71,24 +94,56 @@ $this->params['breadcrumbs'][] = $this->title;
 						<tbody>
 							
                             <tr>
-								<th scope="row" colspan=2><strong><?= $model->shipping_details;?><strong></th>
+                                <th scope="row" >Shipping Mode</th>
 								
+								<th>Shipping Channel</th>
+                                
+                                <th>Tracking No:</th>
+                                
+							</tr>
+                            <tr>
+                                <td scope="row" ><?= $model->shipping_details;?></td>
+								
+                                <td> <?= $model->schannel;?></td>
+                               
+                                <td> <?= $model->tracking;?></td>
+							</tr>
+                            <tr>
+                                <th scope="row" >Address Line1</th>
+								
+								<th>Address Line2</th>
+                                
+                                <th>Landmark</th>
+                                
+							</tr>
+                            <tr>
+                                <td scope="row" ><?= $model->orderAddresses[0]->address1;?></td>
+								
+                                <td><?= $model->orderAddresses[0]->address2;?></td>
+                               
+                                <td><?= $model->orderAddresses[0]->landmark;?></td>
 							</tr>
 							<tr>
 								<th scope="row">City</th>
+                                <th>State</th>
+                                
+                                <th>Country</th>
+								
+							</tr>
+							<tr>
 								<td><?= $model->orderAddresses[0]->city;?></td>
-							</tr>
-							<tr>
-								<th scope="row">State</th>
 								<td><?= $model->orderAddresses[0]->state;?></td>
+                                <td><?= $model->orderAddresses[0]->country;?></td>
 							</tr>
 							<tr>
-								<th scope="row">Pincode</th>
+								<th scope="row">Zip Code</th>
+                                <th>Contact No</th>
+								<th>&nbsp;</th>
+							</tr>
+							<tr>
 								<td><?= $model->orderAddresses[0]->zip;?></td>
-							</tr>
-							<tr>
-								<th scope="row">Contact No</th>
 								<td><?= $model->orderAddresses[0]->phone;?></td>
+                                <td>&nbsp;</td>
 							</tr>
 							
 													
@@ -97,18 +152,7 @@ $this->params['breadcrumbs'][] = $this->title;
 									
 					<?php Panel::end() ?>
 			</div>
-			<div class="form-group col-md-4 col-sm-4 col-xs-12">
-					<?php 
-						Panel::begin(
-							[
-								'header' => Html::encode(Yii::t('backend', 'Payment Detils')),
-								'icon' => 'users',
-							]
-						)
-					?>
-							
-					<?php Panel::end() ?>
-			</div>
+			
 		</div>
         <div class="row">
 			<div class="form-group col-md-12 col-sm-12 col-xs-12">

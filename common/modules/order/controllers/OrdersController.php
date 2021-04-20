@@ -175,6 +175,17 @@ class OrdersController extends Controller
         ]);
     }
     
+     public function actionCancled()
+    {
+        $searchModel = new OrderSearch();
+        $searchModel->order_status = 'cancled'; 
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('cancled', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 
     /**
      * Displays a single Order model.

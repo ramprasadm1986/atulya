@@ -23,7 +23,7 @@ $this->title = 'Tarck Order';
     </div>
     <div class="row">
         <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'trackorder-form']); ?>
+            <?php $form = ActiveForm::begin(['id' => 'trackorder-form','method'=>'get']); ?>
 
             <?= $form->field($model, 'order_id')->textInput(['autofocus' => true]) ?>
 
