@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
 					</a-->
 					<p class="text-center mt-3 mb-0"><?= Html::a("Don't have an account? Sign up.", ['site/signup'],['class'=>'text-dark']) ?></p>
                     <p class="text-center mt-3 mb-0"><?= Html::a("If you forgot your password you can reset it.", ['site/request-password-reset'],['class'=>'text-dark']) ?></p>
-                    <p class="text-center mt-3 mb-0"><?= Html::a("Need new verification email?", ['site/resend-verification-email'],['class'=>'text-dark']) ?></p>
+                    <p class="text-center mt-3 mb-0" style="display:none;"><?= Html::a("Need new verification email?", ['site/resend-verification-email'],['class'=>'text-dark']) ?></p>
 					</div>
 				</div>
                 

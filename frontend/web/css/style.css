@@ -1085,6 +1085,14 @@ padding: 10px;}
 .pdescription{background:#fff; width:100%; padding-top:10px;}
 .tabcontentbox{background:#fff; margin-bottom:20px;}
 .innerpage{background:#fff; padding:20px; margin-bottom:15px;}
+.alert-success{position: absolute;
+top: 0px;
+z-index: 999;
+margin: auto;
+width: 30%;
+text-align: center;
+margin-top: 10%;
+margin-left: 35%;font-size: 24px;}
 
 @media only screen and (max-width: 600px) {
   .navbar {position:static;}

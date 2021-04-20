@@ -163,7 +163,7 @@ class SiteController extends Controller
     {
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post()) && $model->signup(true)) {
-            Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
+            Yii::$app->session->setFlash('success', 'Welcome to  Atulya karigari.Your account has been successfully created.');
             return $this->goHome();
         }
 
