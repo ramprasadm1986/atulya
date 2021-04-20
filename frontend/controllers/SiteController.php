@@ -281,6 +281,11 @@ class SiteController extends Controller
         $order_status['pending']['key']="Payment Processing";
         $order_status['pending']['msg']="Processing payment at gateway or payment pending";
         
+        
+        $order_status['cancled']=[];
+        $order_status['cancled']['key']="User canled the order payment";
+        $order_status['cancled']['msg']="User cancled the payment at gateway";
+        
         $order_status['placed']=[];
         $order_status['placed']['key']="Order Placed";
         $order_status['placed']['msg']="Order Placed Sucessfully";
