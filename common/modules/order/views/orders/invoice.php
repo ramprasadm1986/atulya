@@ -17,10 +17,10 @@ $this->title = $model->order_identifire;
 	<div style="width: 90%; float:left; margin-left:5%; height:100px;">
 		<div style="width: 35%; float: left;"> 
 			<p style="width: 100%; float: left; text-align: left; text-transform: uppercase; font-size: 12px; font-weight:bold; color: #333; margin-top: 0px; margin-bottom: 6px;">
-				<span style="color:#202e7b;">HOT BARGAINS LTD</span> <br /> <br />
-				98 WENNINGTON ROAD <br />
-				RAINHAM , RM13 9DE <br />
-				VAT NO : 243427894
+				<span style="color:#202e7b;">Atulya Karigari India</span> <br /> <br />
+				Plot No 1215/1511 <br />
+				Khandagiri Bari, Ghatikiya, Khordha <br />
+				Bhubaneswar-751030 Odisha (India)
 			</p>	
 		</div>
 		<div style="width: 20%; float: left; margin-left: 5%; margin-right: 5%; text-align: center;"> 
@@ -86,50 +86,8 @@ $this->title = $model->order_identifire;
 			</div>
 		</div>
 	</div>
-	<div style="width:100%; height:60px; float:left; margin-top:10px;">
-		<div style="width:80%; float:left; margin-left:10%; border:1px solid #000; height:60px;">
-			<div style="background:#333; color:#fff; text-align:center; width:100%; float:left;  height:24px; padding-top:4px; font-weight:bold;">
-				<div style="width:20%; float:left; color:#fff;">
-					PO NO
-				</div>
-				<div style="width:20%; float:left; color:#fff;">
-					CUST.CODE
-				</div>
-				<div style="width:20%; float:left; color:#fff;">
-					CUST.VAT
-				</div>
-				<div style="width:20%; float:left; color:#fff;">
-					PAYMENT
-				</div>
-				<div style="width:20%; float:left; color:#fff;">
-					SHIPDATE
-				</div>
-			</div>
-			<div style="width:100%; float:left; height:36px; text-align:center;">
-				<div style="width:20%; float:left; line-height:10px; height:33px;  border-right:1px solid #000;">
-					<br />
-					&nbsp;
-				</div>
-				<div style="width:20%; float:left; line-height:10px; height:33px;  border-right:1px solid #000;">
-					<br />
-					&nbsp;
-				</div>
-				<div style="width:20%; float:left; line-height:10px; height:33px;  border-right:1px solid #000;">
-					<br />
-					&nbsp;
-				</div>
-				<div style="width:20%; float:left; line-height:10px; height:33px;  border-right:1px solid #000;">
-					<br />
-					&nbsp;
-				</div>
-				<div style="width:19%; float:left; line-height:10px; height:33px;">
-					<br />
-					&nbsp;
-				</div>
-			</div>
-		</div>
-	</div>
-	<div style="width:100%; height:auto; float:left; margin-top:5px; margin-bottom:10px;">
+	
+	<div style="width:100%; height:auto; float:left; margin-top:10px; margin-bottom:10px;">
 		<div style="width:90%; float:left; margin-left:5%; border:1px solid #000; height:a;">
 			<div style="background:#333; color:#fff; text-align:center; width:100%; float:left;  height:24px; padding-top:4px; font-weight:bold;">
 				<div style="width:25%; float:left; color:#fff;">
@@ -219,30 +177,24 @@ $this->title = $model->order_identifire;
 	<div style="width:100%; height:65px; float:left; margin-top:5px; margin-bottom:10px;">
 		<div style="width:90%; float:left; margin-left:5%; height:65px;">
 			<div style="color:#fff; text-align:center; width:100%; float:left;  height:24px; padding-top:4px; font-weight:bold;">
-				<div style="width:22.5%; float:left; background:#333; height:22px; padding-top:2px;  color:#fff; border:1px solid #000;">
+				<div style="width:31%; float:left; background:#333; height:22px; padding-top:2px;  color:#fff; border:1px solid #000;">
 					SUB TOTAL
 				</div>
 				<div style="width:2.5%; float:left; color:#fff;">
 					&nbsp;
 				</div>
-				<div style="width:22.5%; background:#333; height:22px; padding-top:2px;   float:left; color:#fff; border:1px solid #000;">
-					VAT TOTAL
-				</div>
-				<div style="width:2.5%; float:left; color:#fff;">
-					&nbsp; 
-				</div>
-                <div style="width:22.5%; background:#333; height:22px; padding-top:2px;   float:left; color:#fff; border:1px solid #000;">
+				<div style="width:31%; background:#333; height:22px; padding-top:2px;   float:left; color:#fff; border:1px solid #000;">
 					SHIPPING TOTAL
 				</div>
 				<div style="width:2.5%; float:left; color:#fff;">
 					&nbsp; 
 				</div>
-				<div style="width:22.5%; background:#333; height:22px; padding-top:2px;   float:left; color:#fff; border:1px solid #000;">
+				<div style="width:31%; background:#333; height:22px; padding-top:2px;   float:left; color:#fff; border:1px solid #000;">
 					TOTAL
 				</div>
 			</div>
 			<div style="width:100%; float:left; height:40px; text-align:center;">
-				<div style="width:22.5%; float:left; height:40px;  border:1px solid #000;">
+				<div style="width:31%; float:left; height:40px;  border:1px solid #000;">
 					<br />
 					<?= Yii::getAlias('@currency'). $model->order_subtotal_excl_tax;?>
 				</div>
@@ -250,15 +202,7 @@ $this->title = $model->order_identifire;
 					<br />
 					&nbsp;
 				</div>
-				<div style="width:22.5%; float:left; height:40px;  border:1px solid #000;">
-					<br />
-					<?= Yii::getAlias('@currency').$model->tax;?>
-				</div>
-				<div style="width:2.5%; float:left; height:40px; ">
-					<br />
-					&nbsp;
-				</div>
-                <div style="width:22.5%; float:left; height:40px;  border:1px solid #000;">
+				<div style="width:31%; float:left; height:40px;  border:1px solid #000;">
 					<br />
 					<?= Yii::getAlias('@currency').$model->shipping;?>
 				</div>
@@ -266,7 +210,7 @@ $this->title = $model->order_identifire;
 					<br />
 					&nbsp;
 				</div>
-				<div style="width:22.5%; float:left; height:40px;  border:1px solid #000;">
+				<div style="width:31%; float:left; height:40px;  border:1px solid #000;">
 					<br />
 					<?= Yii::getAlias('@currency').$model->order_total;?>
 				</div>
@@ -284,31 +228,18 @@ $this->title = $model->order_identifire;
 	<div style="width:100%; height:120px; float:left; margin-top:5px; margin-bottom:20px;">
 		<div style="width:90%; float:left; margin-left:5%; height:200px;">
 			<div style="width:100%; float:left; height:120px;">
-				<div style="width:30%; float:left;padding:1%; height:120px;  border:1px solid #000;">
-					<br />
-					Thanks For Your Business 
-					<br /><br />
-					Please Make Payment To <br />
-					Hot Bargains Ltd <br />
-					Bank : Barclays Bank Plc <br />
-					Sort Code : 20-89-15 <br />
-					Account No : 83280217
-				</div>
-				<div style="width:37%; float:left;  height:120px; ">
-					<br />
-					&nbsp;
-				</div>
-				<div style="width:30%; float:left; height:120px;  border:1px solid #000;">
-					<div style="width:98%; padding:1%; height:39px; float:left; border-bottom:1px solid #000;">
-                   <img src="<?= Yii::getAlias('@storageUrl')."/default/call.png";?>" style="width:32px; height:32px; padding:1px;"> +44(0)7534269292
+				<div style="width:40%; float:left;padding:1%; height:120px;  border:1px solid #000;">
+                   <div style="width:98%; padding:1%; height:39px; float:left; border-bottom:1px solid #000;">
+                   <img src="<?= Yii::getAlias('@storageUrl')."/default/call.png";?>" style="width:32px; height:32px;"> +91 7682842572
 					</div>
 					<div style="width:98%; padding:1%; height:40px; float:left; border-bottom:1px solid #000;">
-                    <img src="<?= Yii::getAlias('@storageUrl')."/default/mail.png";?>" style="width:32px; height:32px; padding:1px;"> info@hotbargains.online
+                    <img src="<?= Yii::getAlias('@storageUrl')."/default/mail.png";?>" style="width:32px; height:32px;"> atulyakarigariindia@gmail.com
 					</div>
 					<div style="width:98%;padding:1%; height:39px; float:left; ">
-                    <img src="<?= Yii::getAlias('@storageUrl')."/default/web.png";?>" style="width:32px; height:32px; padding:1px;"> www.hotbargains.online
+                    <img src="<?= Yii::getAlias('@storageUrl')."/default/web.png";?>" style="width:32px; height:32px;"> www.atulyakarigari.com
 					</div>
 				</div>
+				
 			</div>
 		</div>
 	</div>
