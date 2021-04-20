@@ -305,7 +305,7 @@ class OnepageController extends Controller
                 Yii::$app->session->setFlash('error', 'Order Payment Aborted By User');
                return $this->redirect(['/cart']);
                
-               )
+           }
             else{
                 Yii::$app->session->remove('OrderIdentifire');
                 
