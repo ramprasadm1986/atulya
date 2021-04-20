@@ -75,7 +75,7 @@ color: #555;}
                                 <?php endif;?>
 							</td>
 							<td class="text-left">
-								<div style="max-width: 180px; margin:auto;" class="input-group btn-block">
+								<div style="max-width: 180px; margin:auto;" class="input-group btn-block cartinputgrp">
 									<span class="input-group-btn">
 										<button id="item_qty_dec_<?=$cartval['cart_id']?>" class="btn btn-light" type="button" style="border-radius:4px;border: 1px solid #dedede;" onclick="cartQtyupdate(0,<?=$cartval['id']?>,<?=$cartval['cart_id']?>,'<?= addslashes($cartval['variations'])?>');"><i class="fa fa-minus"></i></button>
 									</span>
@@ -108,7 +108,7 @@ color: #555;}
         
         
 		<div class="row">
-			<div class="col-sm-4 offset-8">
+			<div class="col-sm-4 offset-8 col-12">
 				<table class="table table-bordered">
 					<tbody>
 						<tr>
@@ -141,7 +141,7 @@ color: #555;}
 			<div class="buttons">
 				<div class="pull-left">
                 
-					<a class="btn btn-default" href="<?= Url::to(Yii::$app->request->referrer);?>">
+					<a class="btn btn-default" href="<?= Url::to(['/category']);?>">
 						<i class="fa fa-caret-right"></i>&nbsp;Continue Shopping
 					</a>
 				</div>

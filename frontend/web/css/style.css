@@ -1082,7 +1082,7 @@ list-style-type:decimal;
 
 padding: 10px;}
 .products-grid{background:#fff;}
-.pdescription{background:#fff; padding-top:10px;}
+.pdescription{background:#fff; width:100%; padding-top:10px;}
 .tabcontentbox{background:#fff; margin-bottom:20px;}
 .innerpage{background:#fff; padding:20px; margin-bottom:15px;}
 
@@ -1100,5 +1100,18 @@ line-height: 1.5 !important;}
 h1{font-size: 16px; line-height:1.5;}
 .lead {
     font-size: 1rem;}
+    .breadcrumb{padding:0px;}
+    .hero{margin-top:100px;}
+    .hero-heading{margin-bottom:0px;}
+    .blogcontainer {margin-top:0px;}
+    .mt-5{margin-top:0px !important;}
+    .mb-5{margin-bottom:1rem !important;}
+    .pdescription{margin-top:10px;}
+    .offset-8 {margin-left:0px;}
+    .cartinputgrp{width:180px;}
+    .btn {letter-spacing:.1rem;}
+    .pb-5, .py-5 {
+    padding-bottom: 1rem !important;
+}
 }
 
