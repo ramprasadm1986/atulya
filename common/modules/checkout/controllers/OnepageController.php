@@ -261,7 +261,7 @@ class OnepageController extends Controller
        
      
        
-       if($str->txn_msg=="success"){
+       if(strtolower($str->txn_msg)=="success"){
            
           
           $order_identi=explode("-",$str->clnt_txn_ref);
