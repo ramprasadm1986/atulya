@@ -136,7 +136,7 @@ color: #555;}
 		?>
 			<div class="row">
 			<p>Your shopping cart is empty...</p>
-			<?php echo "ddf"; var_dump( Yii::$app->request->referrer);?>
+			
 			</div>
 			<div class="buttons">
 				<div class="pull-left">
