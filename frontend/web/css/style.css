@@ -1085,3 +1085,20 @@ padding: 10px;}
 .pdescription{background:#fff; padding-top:10px;}
 .tabcontentbox{background:#fff; margin-bottom:20px;}
 .innerpage{background:#fff; padding:20px; margin-bottom:15px;}
+
+@media only screen and (max-width: 600px) {
+  .navbar {position:static;}
+  .navbar-dark .navbar-toggler{position:absolute !important;top:20px;}
+  .py-6,.py-5{padding-top:1rem !important; padding-bottom:1rem !important;}
+  .fashionbox {margin-bottom:15px !important;}
+  .display-3 {
+    font-size: 2.5rem;}
+    h2{font-size: 1.2rem;}
+    h3{font-size: 1.2rem;
+line-height: 1.5 !important;}
+.product {margin-bottom:0px;}
+h1{font-size: 16px; line-height:1.5;}
+.lead {
+    font-size: 1rem;}
+}
+

@@ -61,7 +61,7 @@ $CartItems= $cart_obj->getCartAllItems($CartIdentifire);
                      <?php if(!Yii::$app->user->identity): ?>
 					 <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/site/login']); ?>">Login / Sign Up</a></li>
                      <?php else: ?>
-                     <li class="nav-item"><a class="nav-link" href="<?= Url::to(['my-account/index']); ?>">My Account</a></li>
+                     <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/my-account/index']); ?>">My Account</a></li>
                      <?php endif; ?>
                   </ul>
                   <div class="d-flex align-items-center justify-content-between justify-content-lg-end mt-1 mb-2 my-lg-0">
@@ -73,11 +73,11 @@ $CartItems= $cart_obj->getCartAllItems($CartIdentifire);
 						<i class="fa fa-user-circle-o"></i>
 					    </a>
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userdetails"> 
-							<a class="dropdown-item" href="<?= Url::to(['my-account/index']); ?>">Orders</a>
+							<a class="dropdown-item" href="<?= Url::to(['/my-account/index']); ?>">Orders</a>
 							<a class="dropdown-item" href="#">Addresses</a>
 							<a class="dropdown-item" href="#">Profile</a>
 							<div class="dropdown-divider my-0"></div>
-							<a class="dropdown-item" href="<?= Url::to(['site/logout']);?>" data-method="post">Logout</a>
+							<a class="dropdown-item" href="<?= Url::to(['/site/logout']);?>" data-method="post">Logout</a>
 						</div>
 					 </div>
                     <?php endif; ?>

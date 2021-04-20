@@ -165,7 +165,7 @@ use common\widgets\Alert;
             </div>
             <div class="row">
                <!-- post-->
-               <div class="col-lg-4 col-6">
+               <div class="col-lg-4 col-12">
                   <div class="mb-30px">
                      <a href="#"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home1.jpg"?>" alt="..."></a>
                      
@@ -173,7 +173,7 @@ use common\widgets\Alert;
                </div>
                <!-- /post end-->
                <!-- post-->
-               <div class="col-lg-4 col-6" style="background:#fff;">
+               <div class="col-lg-4 col-12" style="background:#fff;">
                   <div class="mb-30px">
                     
                      <div class="mt-3">
@@ -187,7 +187,7 @@ use common\widgets\Alert;
                </div>
                <!-- /post end-->
                <!-- post-->
-               <div class="col-lg-4 col-6">
+               <div class="col-lg-4 col-12">
                   <div class="mb-30px">
                      <a href="#"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home2.jpg"?>" alt="..."></a>
                     
@@ -283,7 +283,7 @@ use common\widgets\Alert;
             </div>
             <div class="row">
                <!-- post-->
-               <div class="col-lg-4 col-6 ">
+               <div class="col-lg-4 col-12 ">
                   
                   <div class="mb-30px">
                      <a href="post.html"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home3.jpg"?>" alt="..."></a>
@@ -299,7 +299,7 @@ use common\widgets\Alert;
                </div>
                <!-- /post end-->
                <!-- post-->
-               <div class="col-lg-4 col-6">
+               <div class="col-lg-4 col-12">
                    
                   <div class="mb-30px">
                      <a href="post.html"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home4.jpg"?>" alt="..."></a>
@@ -315,7 +315,7 @@ use common\widgets\Alert;
                </div>
                <!-- /post end-->
                <!-- post-->
-               <div class="col-lg-4 col-6">
+               <div class="col-lg-4 col-12">
                   
                   <div class="mb-30px">
                      <a href="post.html"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home5.jpg"?>" alt="..."></a>
