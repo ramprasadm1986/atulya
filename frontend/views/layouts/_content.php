@@ -15,7 +15,7 @@ use common\widgets\Alert;
       </section>
 <?php }
     
-else if(Yii::$app->controller->action->id!="index" && Yii::$app->controller->id=="site") {  echo "i came here"; die();  ?>
+else if(Yii::$app->controller->action->id!="index" && Yii::$app->controller->id=="site") {  ?>
       <section class="hero">
          <div class="container">
            
