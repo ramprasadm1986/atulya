@@ -259,6 +259,8 @@ class OnepageController extends Controller
        
        $str=json_decode('{"'.$str.'"}');
        
+     
+       
        if($str->txn_msg=="success"){
            
           
@@ -282,6 +284,28 @@ class OnepageController extends Controller
                 
                 return $this->redirect(['/checkout/success']); 
            }
+           else if(strtolower($str->txn_msg)=="aborted"){
+               
+               $order_identi=explode("-",$str->clnt_txn_ref);
+            $CartIdentifire=$order_identi[1];
+            $OrderIdentifire=$order_identi[0];
+           
+                $Order = Order::find()->where(['order_identifire'=>$OrderIdentifire,'status'=>0])->one();
+                $Cart = Cart::find()->where(['cart_identifire'=>$CartIdentifire,'status'=>0])->one();
+                
+                $Order->status=2;
+                $Order->order_status="cancled";
+                $tags=json_decode( $Order->order_tags,true);
+                $tags["cancled"]=date("Y-m-d H:i:s");
+                $Order->order_tags=json_encode($tags);
+                $Order->save();
+                $Cart->status=0;
+                $Cart->save();              
+                Yii::$app->session->remove('OrderIdentifire');
+                Yii::$app->session->setFlash('error', 'Order Payment Aborted By User');
+               return $this->redirect(['/cart']);
+               
+               )
             else{
                 Yii::$app->session->remove('OrderIdentifire');
                 

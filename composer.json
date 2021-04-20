@@ -51,7 +51,8 @@
         "kv4nt/yii2-owl-carousel2": "^1.0",
         "rmrevin/yii2-fontawesome": "~2.0",
         "edwinhaq/yii2-simple-loading": "^1.0",
-        "ramprasadm1986/yii2-paynimo": "^1.0"
+        "ramprasadm1986/yii2-paynimo": "^1.0",
+        "vivekmarakana/yii2-timeline-widget": "dev-master"
         
     },
     "require-dev": {

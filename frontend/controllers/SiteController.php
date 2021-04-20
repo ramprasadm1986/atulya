@@ -14,6 +14,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use common\models\Order;
 
 /**
  * Site controller
@@ -264,6 +265,91 @@ class SiteController extends Controller
         return $this->render('resendVerificationEmail', [
             'model' => $model
         ]);
+    }
+    
+    public function actionTrackorder(){
+        $data=[];
+        $items=[];
+        $order=false;
+        $model = new \yii\base\DynamicModel(['order_id']);
+        $model->addRule(['order_id'], 'required');
+        $post=false;
+        $order_id=false;
+        
+        $order_status=[];
+        $order_status['pending']=[];
+        $order_status['pending']['key']="Payment Processing";
+        $order_status['pending']['msg']="Processing payment at gateway or payment pending";
+        
+        $order_status['placed']=[];
+        $order_status['placed']['key']="Order Placed";
+        $order_status['placed']['msg']="Order Placed Sucessfully";
+        
+        $order_status['processing']=[];
+        $order_status['processing']['key']="Processing";
+        $order_status['processing']['msg']="Order is processing";
+        
+        $order_status['invoiced']=[];
+        $order_status['invoiced']['key']="Invoiced";
+        $order_status['invoiced']['msg']="Order Invoice Generated";
+        
+        $order_status['readytoship']=[];
+        $order_status['readytoship']['key']="Ready To Dispatch";
+        $order_status['readytoship']['msg']="Order is ready to dispatch";
+        
+        $order_status['shipped']=[];
+        $order_status['shipped']['key']="Dispatched";
+        
+        
+        if(Yii::$app->request->post()){
+            $pdata=Yii::$app->request->post();
+            $order_id=strtoupper($pdata['DynamicModel']['order_id']);
+            $post=true;
+            $_order=Order::find()->where(['order_identifire'=>$order_id])->one();
+            if($_order){
+                
+                $order=true;
+                $order_tags=json_decode($_order->order_tags,true);
+                foreach($order_tags as $key=>$tag){
+                    
+                    $key=str_replace(" ","",$key);
+                    $_items=[];
+                    $_items['title'] = $order_status[$key]['key'];
+                    $_items['date'] = $tag;
+                    $_items['time'] =$tag;
+                    $_items['notes'] =$order_status[$key]['msg'];
+                    $items[]=$_items;
+                }
+                 
+               $data['status']= $_order->order_status;
+               
+               if($_order->order_status=="shipped"){
+                   
+                    $order_status['shipped']['msg']="Order is dispatched through ".strtoupper($_order->schannel)." Traking Id:".$_order->tracking ;
+                    $_items=[];
+                    $_items['title'] = $order_status['shipped']['key'];
+                    $_items['date'] = $_order->updated_at;
+                    $_items['time'] = $_order->updated_at;
+                    $_items['notes'] = $order_status['shipped']['msg'];
+                    $items[]=$_items;
+                   
+               }
+               
+                $data['items']=$items;
+            }
+           
+        }
+        
+        
+        
+        return $this->render('track', [
+                'model' => $model,
+                'post'  => $post,
+                'order' => $order,
+                'data'  =>$data,
+                'order_id'  =>$order_id
+            ]);
+        
     }
    
 }
