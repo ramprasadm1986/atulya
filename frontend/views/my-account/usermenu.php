@@ -25,12 +25,12 @@ $this->title = 'My Account';
                 <span><i class="fa fa-shopping-cart"></i> Orders</span>
                 <!--div class="badge badge-pill badge-light font-weight-normal px-3">&nbsp;</div-->
             </a>
-            <a class="list-group-item d-flex justify-content-between align-items-center" href="#">
+            <!--a class="list-group-item d-flex justify-content-between align-items-center" href="#">
                 <span><i class="fa fa-user-circle-o"></i> Profile</span>
-            </a>
-            <a class="list-group-item d-flex justify-content-between align-items-center" href="#">
+            </a -->
+            <!--a class="list-group-item d-flex justify-content-between align-items-center" href="#">
                 <span><i class="fa fa-map"></i> Addresses</span>
-            </a>
+            </a -->
             <a class="list-group-item d-flex justify-content-between align-items-center" href="<?= Url::to(['/site/logout']);?>" data-method="post">
                 <span><i class="fa fa-sign-out"></i>Log out</span>
             </a>

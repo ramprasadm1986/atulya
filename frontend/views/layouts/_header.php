@@ -74,8 +74,8 @@ $CartItems= $cart_obj->getCartAllItems($CartIdentifire);
 					    </a>
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userdetails"> 
 							<a class="dropdown-item" href="<?= Url::to(['/my-account/index']); ?>">Orders</a>
-							<a class="dropdown-item" href="#">Addresses</a>
-							<a class="dropdown-item" href="#">Profile</a>
+							<!--a class="dropdown-item" href="#">Addresses</a-->
+							<!--a class="dropdown-item" href="#">Profile</a-->
 							<div class="dropdown-divider my-0"></div>
 							<a class="dropdown-item" href="<?= Url::to(['/site/logout']);?>" data-method="post">Logout</a>
 						</div>
