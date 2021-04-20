@@ -38,6 +38,8 @@ class CartAddress extends \yii\db\ActiveRecord
     {
         return [
             [['cart_identifire', 'name', 'email','address1','country', 'state',  'zip', 'phone'], 'required'],
+            [['phone'], 'string','min'=>10, 'max' => 10,'tooShort'=>'Should be 10 digit long.(Example: 9012687986)' , 'tooLong' => 'Should be 10 digit long.(Example: 9012687986)'],
+            [['zip'], 'string','min'=>6, 'max' => 6,'tooShort'=>'Should be 6 digit long.(Example: 751010)' , 'tooLong' => 'Should be 10 digit long.(Example: 751010)'],
             ['email', 'email'],
             [['created_at', 'updated_at'], 'safe'],
             [['address1', 'address2', 'landmark'], 'string'],

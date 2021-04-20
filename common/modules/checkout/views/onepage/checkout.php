@@ -273,6 +273,13 @@ $js=<<<JS
 $("input[name='Cart[shipping_details]']").on('change', function() {
 setShippingMethod('$setShippingUrl',$(this).val())
 });
+
+$("#cartaddress-zip").inputFilter(function(value) {
+    return /^\d*$/.test(value);    // Allow digits only, using a RegExp
+  });
+$("#cartaddress-phone").inputFilter(function(value) {
+    return /^\d*$/.test(value);    // Allow digits only, using a RegExp
+  });
 JS;
 $this->registerJs($js);
 ?>
