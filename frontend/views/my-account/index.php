@@ -51,8 +51,8 @@ $this->title = 'My Account';
                         <td class="py-2 align-middle"><?=Yii::getAlias('@currency');?> <?= $order->order_total ?></td>
                         <td class="py-2 align-middle"><span class="badge p-2 text-uppercase badge-info"><?= ucfirst($order->order_status); ?></span></td>
                         <td class="py-2 align-middle"><a href="<?= Url::to(['/my-account/orders/'.$order->id]); ?>"> <span class="badge p-2 text-uppercase badge-info">View</span></a>
-                        <?php if($order->status==1){ ?>
-                        <?= Html::a('<span class="badge p-2 text-uppercase badge-info">Track</span>', ['/site/trackorder'], [
+                        <?php // if($order->status==1){ ?>
+                        <?/*= Html::a('<span class="badge p-2 text-uppercase badge-info">Track</span>', ['/site/trackorder'], [
 
                         'data'=>[
 
@@ -64,8 +64,8 @@ $this->title = 'My Account';
 
                         ]
 
-                    ]) ?>
-                        <?php }?>
+                    ])*/ ?>
+                        <?php // }?>
                         
                         </td>
                        

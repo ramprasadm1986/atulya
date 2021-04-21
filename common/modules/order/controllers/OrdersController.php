@@ -106,7 +106,21 @@ class OrdersController extends Controller
         ]);
     }
     
-    
+    public function actionProcess($id){
+        
+         $model= $this->findModel($id);
+         
+         if($model){
+            $model->order_status="processing";
+            $tags=json_decode( $model->order_tags,true);
+            $tags["processing"]=date("Y-m-d H:i:s");
+            $model->order_tags=json_encode($tags);
+            $model->save();
+            Yii::$app->session->setFlash('success', $count.' Order Processed');
+        }
+         
+        return $this->redirect(Yii::$app->request->referrer);
+    }
     
      public function actionProcessing()
     {

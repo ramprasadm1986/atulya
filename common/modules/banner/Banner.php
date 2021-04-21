@@ -25,7 +25,7 @@ class Banner extends \yii\base\Module
     }
     
     public function getHomeBanners(){
-        $banners=HomeBanner::find()->where(['status' =>1])->all();
+        $banners=HomeBanner::find()->where(['status' =>1])->orderBy(['update_at' => SORT_DESC])->all();
         
         
         return $banners;

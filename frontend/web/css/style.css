@@ -1121,5 +1121,18 @@ h1{font-size: 16px; line-height:1.5;}
     .pb-5, .py-5 {
     padding-bottom: 1rem !important;
 }
+h1{font-size:20px !important;}
+.alert-success{width:96% !important; margin:2%; margin-top:30%;  margin-left:2% !important; font-size:20px !important;}
+.dropdown-menu-right{left:0px !important; right:inherit !important;}
+.dropdown-menu{background-color: rgba(0,0,0,0.8) !important;}
+.dropdown-menu a{color:#fff !important;}
+.dropdown-menu a:hover{background:none !important;}
+.table-bordered th, .table-bordered td {min-width:150px;}
+.cart {
+    overflow-x: auto;
+}
+.cart-wrapper {
+    min-width: 768px;
+}
 }
 

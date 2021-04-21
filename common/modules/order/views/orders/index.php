@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <div class="col-md-6">
             <div class="pull-right">
-                <?=  Html::a('<i class="fa fa-list"></i> Generate Shipping List', ['shippinglist'], ['class' => 'btn btn-app']) ?>
+                <?//=  Html::a('<i class="fa fa-list"></i> Generate Shipping List', ['shippinglist'], ['class' => 'btn btn-app']) ?>
                 <?//=  Html::a('<i class="fa fa-list"></i> Generate Packaging Slip', ['packagingslip'], ['class' => 'btn btn-app']) ?>
             </div>
         </div>
@@ -70,6 +70,15 @@ $this->params['breadcrumbs'][] = $this->title;
                    return Html::a ( '<span class="glyphicon glyphicon-download" aria-hidden="true"></span> ', ['/orders/invoice', 'id' => $model->id],['title'=>'Download','target'=>'_blank','data-pjax'=>"0"]);
                }
             ],
+             [
+               'label' => 'Order Process',
+               'format'=>'raw',
+               'value' => function ($model) {
+               
+                   return Html::a ( '<button class="btn btn-info">Process Order</button>', ['/orders/process', 'id' => $model->id],['title'=>'Process','data-pjax'=>"0"]);
+               }
+            ],
+            
             // [
                // 'label' => 'Shipping Label',
                // 'format'=>'raw',

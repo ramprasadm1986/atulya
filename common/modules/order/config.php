@@ -14,6 +14,7 @@ return [
         
         'backend'=>[
                 '/orders' => '/order/orders/index',
+                '/orders/process' => '/order/orders/process',
                 '/orders/processing' => '/order/orders/processing',
                 '/orders/readytoship' => '/order/orders/readytoship',
                 '/orders/shipped' => '/order/orders/shipped',

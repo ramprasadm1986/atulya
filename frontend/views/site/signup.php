@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		<div class="row">
 			<div class=" col-lg-3 col-3 ">
 			</div>
-			<div class=" col-lg-6 col-6 ">
+			<div class=" col-lg-6 col-12 ">
 				<div class=" shadow-sm bg-white p-4 rounded">
 					<div class="p-3">
 					<h3 class="my-0">Let's get started</h3>

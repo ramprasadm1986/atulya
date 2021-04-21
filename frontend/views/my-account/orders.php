@@ -43,10 +43,10 @@ $this->title = 'Order Details';
               <div class="cart-wrapper">
                 <div class="cart-header text-center">
                   <div class="row">
-                    <div class="col-6">Item</div>
+                    <div class="col-3">Item</div>
                     <div class="col-2">Price</div>
                     <div class="col-2">Quantity</div>
-                    <div class="col-2">Total</div>
+                    <div class="col-3">Total</div>
                   </div>
                 </div>
                 <div class="cart-body">
@@ -55,7 +55,7 @@ $this->title = 'Order Details';
                   <?php foreach($order->orderItems as $item ){ ?>
                   <div class="cart-item">
                     <div class="row d-flex align-items-center text-center">
-                      <div class="col-6">
+                      <div class="col-3">
                       
                       
                         <div class="d-flex align-items-center"><a href="<?= Url::to(['/product/'.$item->item->slug]); ?>"><img class="cart-item-img" src="<?= $item->item->base_image?>" alt="..."></a>
@@ -79,7 +79,7 @@ $this->title = 'Order Details';
                       <div class="col-2"><?=Yii::getAlias('@currency');?> <?= $item->sell_price;?></div>
                       <div class="col-2"><?= $item->qty;?>
                       </div>
-                      <div class="col-2 text-center"><?=Yii::getAlias('@currency');?> <?= $item->row_total;?></div>
+                      <div class="col-3 text-center"><?=Yii::getAlias('@currency');?> <?= $item->row_total;?></div>
                     </div>
                   </div>
                   <?php }?>

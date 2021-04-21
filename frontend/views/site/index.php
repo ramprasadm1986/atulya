@@ -47,8 +47,8 @@ use common\widgets\Alert;
                                    <div class="row">
                                           <div class="col-lg-8 offset-lg-1 col-xl-6  text-white" >
                                                  <!--h5 class="text-uppercase text-white font-weight-light mb-4 letter-spacing-5"> Just arrived</h5-->
-                                                 <h1 class="mb-3 text-uppercase  text-serif" style="font-size:22px; padding-top:15px;"><?=$slides->title ?></h1>
-                                                <p class="lead mb-3 text-light">Inspired by Jagannath and Vaishnav traditions, pattachitra is the oldest <br/> art form from Odisha. Atulya Karigari features an extensive list<br/> of pattachitra products.</p>
+                                                 <h1 class="mb-3 text-capitalize  text-serif" style="font-size:28px;background: #0000008f;padding: 20px;border-radius: 10px;"><?=$slides->title ?></h1>
+                                                <p class="lead mb-3 text-light" style="display:none;">Inspired by Jagannath and Vaishnav traditions, pattachitra is the oldest <br/> art form from Odisha. Atulya Karigari features an extensive list<br/> of pattachitra products.</p>
                                                 <?php if($slides->link_to!=""):?>
                                                     <p> <a class="btn btn-dark" href="<?=Url::toRoute([$slides->link_to]); ?>">View collection</a></p>
                                                  <?php endif; ?>
