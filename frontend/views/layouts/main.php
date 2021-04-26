@@ -30,7 +30,8 @@ AppAsset::register($this);
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <meta name="google-site-verification" content="TFvjojLNH0B6cfs3e_0GsMC9hzbKxoMYNlSFLW5gvBs" />
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -40,6 +41,15 @@ AppAsset::register($this);
 	var STORAGE_URL	='<?=Yii::getAlias('@storageUrl');?>';
     var currency_Symbol="<?php echo $currency_Symbol;?>";
 	</script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-192936023-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-192936023-1');
+</script>
 </head>
 <body>
 <?php $this->beginBody() ?>

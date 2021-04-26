@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yiister\gentelella\widgets\Panel;
 use yii\helpers\Url;
+use common\models\ClassCountry;
+use common\models\ClassState;
 
 
 /* @var $this yii\web\View */
@@ -132,8 +134,8 @@ $this->params['breadcrumbs'][] = $this->title;
 							</tr>
 							<tr>
 								<td><?= $model->orderAddresses[0]->city;?></td>
-								<td><?= $model->orderAddresses[0]->state;?></td>
-                                <td><?= $model->orderAddresses[0]->country;?></td>
+								<td><?php $state= ClassState::find()->where(['iso2'=>$model->orderAddresses[0]->state,'country_code'=>$model->orderAddresses[0]->country])->one(); echo $state->name;?></td>
+                                <td><?php  $country=ClassCountry::find()->where(['iso2'=>$model->orderAddresses[0]->country])->one(); echo $country->name;?></td>
 							</tr>
 							<tr>
 								<th scope="row">Zip Code</th>
@@ -171,6 +173,7 @@ $this->params['breadcrumbs'][] = $this->title;
 							<tr>
 								<th>#</th>
 								<th>Name</th>
+								<th>SKU</th>
 								<th>Qty</th>
 								<th>Unit Price</th>
 								<th>Total Price</th>
@@ -205,6 +208,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <?php endif;?>
                                 
                                 </td>
+                                <td><?= $item->item->sku;?></td>
 								<td><?= $item->qty;?></td>
 								<td><?= Yii::getAlias('@currency').$item->sell_price;?></td>
 								<td><?= Yii::getAlias('@currency').$item->row_total;?></td>
@@ -213,7 +217,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						</tbody>
 						<tfoot>
                             <tr>
-								<th colspan="3" >&nbsp;</th>
+								<th colspan="4" >&nbsp;</th>
 								<th>Subtotal</th>
 								<th><?= Yii::getAlias('@currency'). $model->order_subtotal_excl_tax;?></th>
 							</tr>

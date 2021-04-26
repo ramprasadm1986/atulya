@@ -4,13 +4,15 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yiister\gentelella\widgets\Panel;
 use yii\helpers\Url;
-
+use common\models\ClassCountry;
+use common\models\ClassState;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Order */
 
 $this->title = $model->order_identifire;
-
+$state= ClassState::find()->where(['iso2'=>$model->orderAddresses[0]->state,'country_code'=>$model->orderAddresses[0]->country])->one(); 
+$country=ClassCountry::find()->where(['iso2'=>$model->orderAddresses[0]->country])->one();
 ?>
 
 <div style="font-family:courier; margin:auto; padding:0px; font-size:10px;">
@@ -63,11 +65,14 @@ $this->title = $model->order_identifire;
 			</div>
 			<div style="width:100%;height:110px; padding-top:4px; padding-left:5px; border:1px solid #000; line-height:1.2;">
 				
-				<?= $model->orderAddresses[0]->name; ?> <br /> <br />
-				<?= $model->orderAddresses[0]->city;?> <br />
-				<?= $model->orderAddresses[0]->state;?> <br />
-				<?= $model->orderAddresses[0]->zip;?> <br />
-                <?= $model->orderAddresses[0]->phone;?>
+				Name: <?= $model->orderAddresses[0]->name; ?> <br />
+				Address: <?= $model->orderAddresses[0]->address1;?> <br />
+				<?= $model->orderAddresses[0]->address2;?> <br />
+				Landmark: <?= $model->orderAddresses[0]->landmark;?> <br />
+				City: <?= $model->orderAddresses[0]->city;?><br />
+				State: <?= $state->name;?> <br />
+				Zip: <?= $model->orderAddresses[0]->zip;?> <br />
+                Phone: <?= $model->orderAddresses[0]->phone;?>
 			</div>
 		</div>
 		<div style="width:26%; height:140px; float:left;">
@@ -78,11 +83,14 @@ $this->title = $model->order_identifire;
 			</div>
 			<div style="width:100%;height:110px; padding-top:4px; padding-left:5px; border:1px solid #000; line-height:1.2;">
 				
-				<?= $model->orderAddresses[0]->name; ?> <br /> <br />
-				<?= $model->orderAddresses[0]->city;?> <br />
-				<?= $model->orderAddresses[0]->state;?> <br />
-				<?= $model->orderAddresses[0]->zip;?> <br />
-                <?= $model->orderAddresses[0]->phone;?>
+				Name: <?= $model->orderAddresses[0]->name; ?> <br />
+				Address: <?= $model->orderAddresses[0]->address1;?> <br />
+				<?= $model->orderAddresses[0]->address2;?> <br />
+				Landmark: <?= $model->orderAddresses[0]->landmark;?> <br />
+				Cit: <?= $model->orderAddresses[0]->city;?><br />
+				State: <?= $state->name;?> <br />
+				Zip: <?= $model->orderAddresses[0]->zip;?> <br />
+                Phone: <?= $model->orderAddresses[0]->phone;?>
 			</div>
 		</div>
 	</div>
