@@ -56,10 +56,10 @@
                   </div>
                   <div class="col-lg-3 mb-5 mb-lg-0">
                        <div class="font-weight-bold text-uppercase text-lg text-dark mb-3">Get In Touch<span class="text-primary">.</span></div>
-                      <p class="mb-3"> Plot No 1215/1511;<br/>
-Khandagiri Bari, Ghatikiya, Khordha,<br/>
-Bhubaneswar-751030 Odisha (India)<br/>
-Phone: +91 7682842572<br/>
+                      <p class="mb-3"> AAAM Merchantry Pvt Ltd<br/>
+Plot No:1215/1402, Near Jaydev Vatika,<br/>
+Khandagiri, Bhubaneswar, 751030<br/>
+WhatsApp: +91 7682842572<br/>
 Email: atulyakarigariindia@gmail.com</p>
                      <div class="font-weight-bold text-uppercase text-lg text-dark mb-3">Social Information<span class="text-primary">.</span></div>
                    

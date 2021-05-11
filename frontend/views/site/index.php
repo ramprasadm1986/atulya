@@ -85,8 +85,8 @@ use common\widgets\Alert;
                      <img class="card-img" src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_images/image1.jpg"?>" alt="Card image">
                      <div class="card-img-overlay d-flex align-items-center">
                         <div class="w-100">
-                           <h3 class=" mb-4">Khandua Silk Tie</h3>
-                           <a class="btn btn-link text-white" href="<?=Url::toRoute(['category/tie']); ?>">Shop now <i class="fa-arrow-right fa ml-2"></i></a>
+                           <h3 class=" mb-4">Khandua Silk Saree</h3>
+                           <a class="btn btn-link text-white" href="<?=Url::toRoute(['category/khandua-silk']); ?>">Shop now <i class="fa-arrow-right fa ml-2"></i></a>
                         </div>
                      </div>
                   </div>
