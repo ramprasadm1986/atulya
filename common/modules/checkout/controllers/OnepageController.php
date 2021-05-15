@@ -169,6 +169,150 @@ class OnepageController extends Controller
             return $this->redirect(['/cart']);
         
     }
+    public function setCartSymmery(){
+        
+        
+        $CartIdentifire = $this->getCartidentifier();
+		$Cart = Cart::find()->where(['cart_identifire'=>$CartIdentifire,'status'=>0])->one();
+       
+        if($Cart)
+        {
+            
+            $Cart->cart_total=round(($Cart->cart_subtotal_excl_tax-$Cart->discount)+$Cart->tax+$Cart->shipping,2);
+            $Cart->save();
+        }
+        
+    }
+    public function actionSetcoupon(){
+        $json_result = array();
+        if(!Yii::$app->hasModule('promo'))
+        {
+           $json_result['status'] = false; 
+           return $this->asJson($json_result);  
+        }
+        
+        
+        $post = Yii::$app->request->post();
+		extract($post);
+        $this->setCartSymmery();
+        $CartIdentifire = $this->getCartidentifier();
+		$Cart = Cart::find()->where(['cart_identifire'=>$CartIdentifire,'status'=>0])->one();
+        $couponInfo=Yii::$app->getModule('promo')->validateCouponCode($coupon);
+        
+        if($isRemove=='true' && $Cart){
+                $Cart->discount=0;
+                $Cart->descout_details="";
+                $Cart->save();
+                $this->setCartSymmery();
+                $Cart = Cart::find()->where(['cart_identifire'=>$CartIdentifire,'status'=>0])->one();
+                $json_result['msg'] = "Coupon Removed";
+                $json_result['cart_data'] = ['tax'=>$Cart->tax,'tax_details'=>$Cart->tax_details,'discount'=>$Cart->discount,'cart_total'=>$Cart->cart_total];
+                $json_result['cupon_status'] = 'false';
+                $json_result['status'] = true;
+            
+        }else if($couponInfo && $Cart && $isRemove=='false'){
+            if(!$couponInfo->public && Yii::$app->user->isGuest){
+                
+                $json_result['msg'] = "This promo code is not ment for 'Guest User'. Login to avail the promo code."; 
+                $json_result['status'] = false; 
+                return $this->asJson($json_result);
+            }
+            if(!Yii::$app->user->isGuest &&  $couponInfo->total_use>0){
+                
+                 $used=Cart::find()->where(['descout_details'=>$coupon,'user_email'=>Yii::$app->user->identity->email,'status'=>1])->count();
+                 if($used>=$couponInfo->total_use){
+                    
+                    $json_result['msg'] = "Reached maximum use of Promo Code"; 
+                    $json_result['status'] = false; 
+                    return $this->asJson($json_result);
+                     
+                 }
+                
+            }
+            if($couponInfo->has_condition){
+                
+                	if($couponInfo->filter_by=="product"){
+                        $products=explode(",",$couponInfo->products);
+                        $products=array_map('trim', $products);
+                        $inProduct=false;
+                        foreach($Cart->cartItems as $item){
+                            
+                            if (in_array($item->item->sku, $products))
+                                $inProduct=true;
+                        }
+                        if(!$inProduct){
+                    
+                            $json_result['msg'] = "Promo Code not applicable for the cart items"; 
+                            $json_result['status'] = false; 
+                            return $this->asJson($json_result);
+                             
+                         }
+                        
+                    }
+                    else if($couponInfo->filter_by=="categories"){
+                        $Categories=explode(",",$couponInfo->categories);
+                        $Categories=array_map('trim', $Categories);
+                        $inCategory=false;
+                        
+                        foreach($Cart->cartItems as $item){
+                            $intersect=[];
+                            $itemCategory=explode(",",$item->item->categories);
+                            $intersect=array_intersect($itemCategory, $Categories);
+                            if (count($intersect))
+                                $inCategory=true;
+                        }
+                        if(!$inCategory){
+                    
+                            $json_result['msg'] = "Promo Code not applicable for the cart items"; 
+                            $json_result['status'] = false; 
+                            return $this->asJson($json_result);
+                             
+                         }
+                        
+                    }
+            }
+            
+            if($couponInfo->discount_type=="flat"){
+                $discount=$discount= number_format((float)$couponInfo->discount, 2);
+                $discount= $discount-0;                
+                $Cart->discount=$discount;
+                $Cart->descout_details=$couponInfo->code;
+                
+                $Cart->save();
+                $this->setCartSymmery();
+                $Cart = Cart::find()->where(['cart_identifire'=>$CartIdentifire,'status'=>0])->one();
+                $json_result['msg'] = "Coupon Applied";
+                $json_result['cart_data'] = ['shipping'=>$Cart->shipping,'discount'=>$Cart->discount,'tax'=>$Cart->tax,'tax_details'=>$Cart->tax_details,'cart_total'=>$Cart->cart_total];
+                $json_result['cupon_status'] = 'true';
+                $json_result['status'] = true;
+            }
+            if($couponInfo->discount_type=="percent"){
+                $discount= (($Cart->cart_subtotal_excl_tax/100)*$couponInfo->discount);
+                $discount= number_format((float) $discount, 2);
+                $discount= $discount-0;                
+                $Cart->discount=$discount;
+                $Cart->descout_details=$couponInfo->code;
+                
+                $Cart->save();
+                $this->setCartSymmery();
+                $Cart = Cart::find()->where(['cart_identifire'=>$CartIdentifire,'status'=>0])->one();
+                $json_result['msg'] = "Coupon Applied";
+                $json_result['cart_data'] = ['shipping'=>$Cart->shipping,'discount'=>$Cart->discount,'tax'=>$Cart->tax,'tax_details'=>$Cart->tax_details,'cart_total'=>$Cart->cart_total];
+                $json_result['cupon_status'] = 'true';
+                $json_result['status'] = true;
+            }
+            
+            
+            
+        }
+        else{
+            $json_result['msg'] = "Invalid promo code 'or' code has been expired."; 
+            $json_result['status'] = false; 
+        }
+        
+        return $this->asJson($json_result);
+    }
+    
     public function actionSetshipping(){
         
 		$post = Yii::$app->request->post();
@@ -229,6 +373,9 @@ class OnepageController extends Controller
         
         
     }
+    
+    
+    
     public function actionPaynimoreturn(){
         
         $response = Yii::$app->request->post();
@@ -325,11 +472,11 @@ class OnepageController extends Controller
     
     public function actionIndex(){
         
-        
+        $this->setCartSymmery();
         $CartIdentifier = $this->getCartidentifier();
 		$Cart = Cart::find()->where(['cart_identifire'=>$CartIdentifier,'status'=>0])->one();
        
-        
+       
         if(Yii::$app->request->post()){
             
              $model =new CartAddress();

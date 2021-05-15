@@ -205,6 +205,43 @@ color: #555;}
                <hr>
             </div>
            </div>
+                       <?php if (Yii::$app->hasModule('promo')): ?>
+            
+             <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                
+                
+                   
+                    <div class="form-group highlight-addon">
+                        
+                            
+                                <label class="control-label">Promo Code</label>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="text" id="coupon-code" class="form-control" value="<?= $Cart->descout_details?$Cart->descout_details:"";?>" <?= $Cart->discount!=0?"readonly disabled":"";?> />
+                                    </div>
+                                
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <button type="button" id="applycoupon" class="btn btn-primary"> <?= $Cart->discount!=0?"Remove":"Apply";?> </button>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="help-block-coupon" id="help-block-coupon"></div>
+
+                            
+                         
+                    </div>
+                    
+                   
+                   
+                
+                 <hr>
+            </div>
+            
+            </div>
+            
+            
+            <?php endif;?>
            <div class="row">
             <div class="form-group col-md-12 col-sm-12 col-xs-12">
                 <p>Order Summary</p>
@@ -218,6 +255,22 @@ color: #555;}
                     </div>                
             </div>
             </div>
+            <?php if (Yii::$app->hasModule('promo')): ?>
+            <div class="row">
+            <div class="form-group col-md-12 col-sm-12 col-xs-12" id="promo-block">    
+                    <div class="form-group">
+                        <div class="pull-left">
+                        <label class="control-label"><i>Promo Discount</i></label>
+                        
+                        </div>
+                        <div class="pull-right">
+                        <label class="control-label"><?= Yii::getAlias('@currency')?><span id="promo-amount"><?= $Cart->discount!=0?$Cart->discount:0;?></span></label>
+                        </div>
+                    </div>                
+               
+            </div>
+            </div>
+            <?php endif;?>
             <div class="row">
             <div class="form-group col-md-12 col-sm-12 col-xs-12">    
                
@@ -267,8 +320,14 @@ color: #555;}
     </div>
 </div>
  </section>
+<?php if (Yii::$app->hasModule('promo')): ?>
+<script>
+var cuponapplied='<?= $Cart->discount!=0?"true":"false"; ?>';
+</script>
+<?php endif;?>
 <?php 
 $setShippingUrl=Url::to(['/checkout/onepage/setshipping']);
+$setCouponCode=Url::to(['/checkout/onepage/setcoupon']);
 $js=<<<JS
 $("input[name='Cart[shipping_details]']").on('change', function() {
 setShippingMethod('$setShippingUrl',$(this).val())
@@ -280,6 +339,26 @@ $("#cartaddress-zip").inputFilter(function(value) {
 $("#cartaddress-phone").inputFilter(function(value) {
     return /^\d*$/.test(value);    // Allow digits only, using a RegExp
   });
+  
+  
+$("#applycoupon").on('click',async function(){
+    $("#help-block-coupon").html("");
+    var coupon=$("#coupon-code").val();
+    coupon=coupon.trim();
+  
+    if(coupon==""){
+        $("#coupon-code").val("");
+        $("#help-block-coupon").html("Promo Code Can't be blank");
+        return false;
+    }
+    
+    setCouponCode('$setCouponCode',coupon,cuponapplied);
+    
+    
+    
+        
+})
+  
 JS;
 $this->registerJs($js);
 ?>

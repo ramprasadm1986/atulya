@@ -16,7 +16,66 @@
   };
 }(jQuery));
 
-
+async function setCouponCode(url,coupon,isRemove){
+    
+    $.ajax({
+		url: url,
+		type: "POST",
+		data: {
+			coupon: coupon,
+            isRemove:isRemove
+		},
+		beforeSend:function(json)
+		{ 
+			$("#placeorder").prop('disabled', true);
+            SimpleLoading.start('ring'); 
+		},
+		success: function (result) {
+			var results = result;
+			
+			if(results.status == 1){
+				
+				
+				
+				$('#grand_total').html(results.cart_data.cart_total);
+				$('#tax_amount').html(results.cart_data.tax);                
+                $('#promo-amount').html(results.cart_data.discount);
+				cuponapplied=results.cupon_status;
+                if(cuponapplied=='true'){
+                    $("#coupon-code").prop('disabled', true);
+                    $("#coupon-code").prop('readonly', true);
+                    $("#applycoupon").html("Remove");
+                   
+                    $("#help-block-coupon").html(results.msg);
+                }
+                else{
+                    $("#coupon-code").prop('disabled', false);
+                    $("#coupon-code").prop('readonly', false);
+                    $("#applycoupon").html("Apply");
+                    $("#help-block-coupon").html(results.msg);
+                   
+                }
+            }
+            else{
+                
+                    cuponapplied=false;
+                    $("#coupon-code").prop('disabled', false);
+                    $("#coupon-code").prop('readonly', false);
+                    $("#applycoupon").html("Apply");
+                    $("#help-block-coupon").html(results.msg);
+                   
+            }
+			
+		},
+		complete:function(json)
+		{
+			$("#placeorder").prop('disabled', false);
+            SimpleLoading.stop();
+		},
+	});
+    
+    
+}
 
 function SwitchPrice(){
     

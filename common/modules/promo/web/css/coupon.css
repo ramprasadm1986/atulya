@@ -1,0 +1,49 @@
+#conditions,.field-coupon-total_use,.field-coupon-categories,.field-coupon-products,.product-help,.category-help,.field-search{
+    display: none;
+}
+
+#search-loading{
+    max-height: 300px;
+    min-height: 300px;
+    height: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 14px;
+    color: #fff;
+    text-transform:capitalize;
+    margin-top:0px;
+    font-weight: 500;
+    text-align: center;
+    text-overflow: ellipsis;
+}
+#search-loading:after{
+    content: "";
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #000;
+  border-color: #000 transparent #000 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
