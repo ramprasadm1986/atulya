@@ -4,7 +4,7 @@ namespace frontend\controllers;
 use frontend\models\CatalogCategory;
 use common\models\Product;
 use yii\helpers\Url;
-
+use Yii;
 use yii\data\Pagination;
 
 
@@ -13,7 +13,40 @@ class CategoryController extends \yii\web\Controller
     
     private $_CurrentCategory;
     
-    
+    public function actionSearch()
+    {
+        
+           
+            
+            $get=Yii::$app->request->get();
+           
+            extract($get);
+           
+            $data=[];
+			$products = array();
+			$category=CatalogCategory::find()->where(['id' => 1])->one();
+            $searchdata=[];
+            $searchdata['query']=$search;
+            if($category){
+                
+                $this->_CurrentCategory=$category;
+                $leaves = $category->leaves()->asArray()->all();                
+                $id=$this->_CurrentCategory->id;
+                $data['CategoryFiletrs']=[];      
+                
+                $query=Product::find()->where(['status'=>1])->andWhere(['like','name', $search]);
+
+                $countQuery = clone $query;
+                
+                
+                
+                $pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize'=>18]);
+                
+                $products=Product::find()->where(['status'=>1])->andWhere(['like','name', $search])->limit($pages->limit)->offset($pages->offset)->all();
+                
+               return $this->render('search',['products'=>$products,'pages' => $pages,'searchdata'=>$searchdata]);
+            }             
+    }
     public function actionIndex($slug="")
     {
         

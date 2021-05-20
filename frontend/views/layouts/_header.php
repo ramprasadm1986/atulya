@@ -1,6 +1,10 @@
 <?
 use yii\helpers\Url;
 use common\models\Cart;
+use common\models\Product;
+use yii\web\JsExpression;
+use yii\bootstrap\ActiveForm;
+use kartik\widgets\Typeahead;
 if(Yii::$app->session->get('CartIdentifire')!=""){
 	$CartIdentifire = Yii::$app->session->get('CartIdentifire');
 }else{
@@ -11,6 +15,21 @@ $cartdetails = $cart_obj->getHeadercartdetails($CartIdentifire);
 $no_cartitem = $cartdetails['Totalcartitem'];
 $cartamount = $cartdetails['Totalamount'];
 $CartItems= $cart_obj->getCartAllItems($CartIdentifire);
+
+ $jsonfile= Yii::getAlias('@storage/product.json');
+ if (!file_exists($jsonfile)) {
+    $product_search=json_encode(Product::getProducts());
+    $fp = fopen($jsonfile, 'w+');
+    fwrite($fp, $product_search);
+    fclose($fp);     
+ }
+ if (time()-filemtime($jsonfile) > 1 * 3600) {
+  $product_search=json_encode(Product::getProducts());
+  $fp = fopen($jsonfile, 'w+');
+  fwrite($fp, $product_search);
+  fclose($fp);
+}
+
 ?>
 
 
@@ -51,7 +70,7 @@ $CartItems= $cart_obj->getCartAllItems($CartIdentifire);
                <div class="collapse navbar-collapse" id="navbarCollapse">
                   <ul class="navbar-nav mx-auto">
                      <li class="nav-item ">
-                        <a class="nav-link active" href="<?= Url::home(); ?>" >
+                        <a class="nav-link" href="<?= Url::home(); ?>" >
                         Home</a>
                      </li>
                       <li class="nav-item ">
@@ -71,14 +90,61 @@ $CartItems= $cart_obj->getCartAllItems($CartIdentifire);
                   </ul>
                   <div class="d-flex align-items-center justify-content-between justify-content-lg-end mt-1 mb-2 my-lg-0">
                      <!-- User Not Logged - link to login page-->
-                    <div  id="newsletter-form">
+                    <!--div  id="newsletter-form">
                         <div class="input-group ">
                            <input class="form-control  border-right-0" placeholder="Search here" aria-label="Search here" type="text" style="height:30px;">
                            <div class="input-group-append">
                               <button class="btn btn-warning border-left-0" style="background:#ed8b25; height:30px;" type="submit"> <i class="fa fa-search text-md text-white"></i></button>
                            </div>
                         </div>
-                     </div>
+                     </div-->
+                     <?php ActiveForm::begin(['method' => 'get','id' => 'serachform','action' => ['category/search'],'options' => [
+                'class' => 'search-form  has-categories-select'
+             ]]) ?>
+                     <div  id="newsletter-form">
+                     <div class="input-group ">
+                     <?php
+                                $template = '<div><a href="'.Yii::getAlias('@frontendUrl').'/product/{{slug}}" style="display:block;height:50px;" >'.
+                                            '<div style="float: left;width: 20%; margin-right:1%;">'.
+                                            '<img src="{{base_image}}" style="width:100%;height:auto;" >' .
+                                            '</div>'.
+                                            '<div style="float: left;width: 75%;overflow: hidden;">'.
+                                            '<span>{{name}}</span>' .
+                                            '</div>'.
+                                            '</a></div>';
+                                
+                                
+                                echo Typeahead::widget([
+                                    'name' => 'search', 
+                                    'options' => ['placeholder' => 'Search for Product','required'=>"required",'style'=>'height:30px;'],
+                                   
+                                    'pluginOptions' => ['highlight'=>true],
+                                    'pluginEvents' => [
+                                           
+                                            "typeahead:select" => "typeheadSearch",
+                                            'keydown' => 'function(dataset,suggestion){ if(event.keyCode == 13){$("#serachform").submit();}}'
+                                           
+                                        ],
+                                    'dataset' => [
+                                        [
+                                            'prefetch' => Yii::getAlias('@storageUrlNonProtocal/product.json'),
+                                            'datumTokenizer' => "Bloodhound.tokenizers.obj.whitespace('value')",
+                                            'display' => 'value',
+                                            
+                                            'templates' => [
+                                                'notFound' => '<div class="text-danger" style="padding:0 8px">No Product Found</div>',
+                                                'suggestion' => new JsExpression("Handlebars.compile('{$template}')")
+                                            ]
+                                        ]
+                                    ]
+                                ]);
+                                ?>
+                           <div class="input-group-append">
+                              <button class="btn btn-warning border-left-0" style="background:#ed8b25; height:30px;" type="submit"> <i class="fa fa-search text-md text-white"></i></button>
+                           </div>
+                        </div>
+                        </div>
+                    <?php ActiveForm::end(); ?>
                     <?php if(Yii::$app->user->identity): ?>
 					 <div class="nav-item dropdown">
 					     

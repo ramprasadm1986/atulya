@@ -48,6 +48,7 @@ return [
             'rules' => [
                 '<controller:[\w\-]+>/<action:[\w\-]+>/<id:\d+>' => '<controller>/<action>',
                 'category/index' => 'category/index',
+                'category/search' => 'category/search',
                 'category/<slug>' => 'category/index',
                 'cms-page/<slug>' => 'cms-page/index',
                 'product/<slug>' =>  'product/index',
