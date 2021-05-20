@@ -195,13 +195,14 @@ $CartItems= $cart_obj->getCartAllItems($CartIdentifire);
                         </div>
                      </div>
                   </div>
-               </div>
-              
-              <?php if(!Yii::$app->user->identity): ?>
+                   <?php if(!Yii::$app->user->identity): ?>
                
                 <?= Html::a('<span class="badge p-2 text-uppercase badge-info" style="background:#ed8b25;height:25px; margin-right:5px;" ><i class="fa fa-rocket text-md text-white"></i></span>', ['/site/trackorder']);?>
                 
               <? endif;?>
+               </div>
+              
+             
               </div>
             </div>
          </nav>
