@@ -197,8 +197,11 @@ $CartItems= $cart_obj->getCartAllItems($CartIdentifire);
                   </div>
                </div>
               
+              <?php if(!Yii::$app->user->identity): ?>
                
                 <?= Html::a('<span class="badge p-2 text-uppercase badge-info"><i class="fa fa-rocket"></i></span>', ['/site/trackorder']);?>
+                
+              <? endif;?>
               </div>
             </div>
          </nav>
