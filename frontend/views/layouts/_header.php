@@ -71,7 +71,7 @@ $CartItems= $cart_obj->getCartAllItems($CartIdentifire);
                 
                <!-- Navbar Collapse -->
                <div class="collapse navbar-collapse" id="navbarCollapse">
-                  <ul class="navbar-nav mx-auto" style="margin-right:0px;margin-left:0px;">
+                  <ul class="navbar-nav mx-auto" >
                      <li class="nav-item ">
                         <a class="nav-link" href="<?= Url::home(); ?>" >
                         Home</a>
