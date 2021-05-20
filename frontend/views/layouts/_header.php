@@ -5,6 +5,8 @@ use common\models\Product;
 use yii\web\JsExpression;
 use yii\bootstrap\ActiveForm;
 use kartik\widgets\Typeahead;
+
+use yii\helpers\Html;
 if(Yii::$app->session->get('CartIdentifire')!=""){
 	$CartIdentifire = Yii::$app->session->get('CartIdentifire');
 }else{
@@ -66,6 +68,7 @@ $CartItems= $cart_obj->getCartAllItems($CartIdentifire);
              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="container-fluid">
              <div class="container">
+                
                <!-- Navbar Collapse -->
                <div class="collapse navbar-collapse" id="navbarCollapse">
                   <ul class="navbar-nav mx-auto">
@@ -153,8 +156,8 @@ $CartItems= $cart_obj->getCartAllItems($CartIdentifire);
 					    </a>
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userdetails"> 
 							<a class="dropdown-item" href="<?= Url::to(['/my-account/index']); ?>">Orders</a>
-							<a class="dropdown-item" href="#">Track Order</a>
-							<!--a class="dropdown-item" href="#">Profile</a-->
+							<a class="dropdown-item" href="<?= Url::to(['/site/trackorder']); ?>">Track Order</a>
+							
 							<div class="dropdown-divider my-0"></div>
 							<a class="dropdown-item" href="<?= Url::to(['/site/logout']);?>" data-method="post">Logout</a>
 						</div>
@@ -193,7 +196,10 @@ $CartItems= $cart_obj->getCartAllItems($CartIdentifire);
                      </div>
                   </div>
                </div>
-               </div>
+              
+               
+                <?= Html::a('<span class="badge p-2 text-uppercase badge-info"><i class="fa fa-rocket"></i></span>', ['/site/trackorder']);?>
+              </div>
             </div>
          </nav>
          <!-- /Navbar -->
