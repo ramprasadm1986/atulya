@@ -54,6 +54,10 @@ $CartItems= $cart_obj->getCartAllItems($CartIdentifire);
                         <a class="nav-link active" href="<?= Url::home(); ?>" >
                         Home</a>
                      </li>
+                      <li class="nav-item ">
+                        <a class="nav-link" href="/cms-page/about" >
+                        About Us</a>
+                     </li>
                      <?= $this->render('_sitemenu.php') ?>
                      
                      <!-- Multi level dropdown end-->
@@ -63,18 +67,27 @@ $CartItems= $cart_obj->getCartAllItems($CartIdentifire);
                      <?php else: ?>
                      <li class="nav-item"><a class="nav-link" href="<?= Url::to(['/my-account/index']); ?>">My Account</a></li>
                      <?php endif; ?>
+                     <li></li>
                   </ul>
                   <div class="d-flex align-items-center justify-content-between justify-content-lg-end mt-1 mb-2 my-lg-0">
                      <!-- User Not Logged - link to login page-->
-                    
+                    <div  id="newsletter-form">
+                        <div class="input-group ">
+                           <input class="form-control  border-right-0" placeholder="Search here" aria-label="Search here" type="text" style="height:30px;">
+                           <div class="input-group-append">
+                              <button class="btn btn-warning border-left-0" style="background:#ed8b25; height:30px;" type="submit"> <i class="fa fa-search text-md text-white"></i></button>
+                           </div>
+                        </div>
+                     </div>
                     <?php if(Yii::$app->user->identity): ?>
 					 <div class="nav-item dropdown">
+					     
 						<a class="dropdown-toggle navbar-icon-link" id="userdetails" style="color: #ed8b25;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<i class="fa fa-user-circle-o"></i>
 					    </a>
 						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userdetails"> 
 							<a class="dropdown-item" href="<?= Url::to(['/my-account/index']); ?>">Orders</a>
-							<!--a class="dropdown-item" href="#">Addresses</a-->
+							<a class="dropdown-item" href="#">Track Order</a>
 							<!--a class="dropdown-item" href="#">Profile</a-->
 							<div class="dropdown-divider my-0"></div>
 							<a class="dropdown-item" href="<?= Url::to(['/site/logout']);?>" data-method="post">Logout</a>

@@ -288,8 +288,8 @@ class OnepageController extends Controller
             }
             if($couponInfo->discount_type=="percent"){
                 $discount= (($Cart->cart_subtotal_excl_tax/100)*$couponInfo->discount);
-                $discount= number_format((float) $discount, 2);
-                $discount= $discount-0;                
+               
+                           
                 $Cart->discount=$discount;
                 $Cart->descout_details=$couponInfo->code;
                 
