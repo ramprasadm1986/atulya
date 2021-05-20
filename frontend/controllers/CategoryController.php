@@ -40,7 +40,7 @@ class CategoryController extends \yii\web\Controller
                 
                 
                 
-                $pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize'=>18]);
+                $pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize'=>28]);
                 
                 $products=Product::find()->where(['status'=>1])->andWhere(['like','name', $search])->limit($pages->limit)->offset($pages->offset)->all();
                 
