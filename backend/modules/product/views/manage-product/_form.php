@@ -107,6 +107,15 @@ use yii\helpers\ArrayHelper;
                     ],
                     [
 
+                        'label' => 'Size Chart',
+
+                        'content' => $this->render('@backend/modules/product/views/manage-product/form/_sizechart', ['form' => $form,'model'=>$model]),           
+
+                     
+
+                    ],
+                    [
+
                         'label' => 'Categories',
 
                         'content' => $this->render('@backend/modules/product/views/manage-product/form/_category', ['form' => $form,'model'=>$model]),           

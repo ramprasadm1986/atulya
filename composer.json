@@ -54,7 +54,8 @@
         "ramprasadm1986/yii2-paynimo": "^1.0",
         "vivekmarakana/yii2-timeline-widget": "dev-master",
         "kartik-v/yii2-widget-typeahead": "^1.0",
-        "yiisoft/yii2-authclient": "^2.2"
+        "yiisoft/yii2-authclient": "^2.2",
+        "coderius/yii2-lightbox2-widget": "^1.0"
         
     },
     "require-dev": {

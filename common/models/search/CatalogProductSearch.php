@@ -18,7 +18,7 @@ class CatalogProductSearch extends CatalogProduct
     {
         return [
             [['id', 'tax_type_id', 'tax_rule_id', 'is_special_price', 'is_featured', 'is_trending', 'is_bestseller', 'is_new', 'status'], 'integer'],
-            [['type', 'name', 'short_description', 'description', 'sku', 'slug', 'meta_title', 'meta_keywords', 'meta_description', 'base_image', 'gallery_images', 'length_class', 'weight_class', 'tax_type', 'tax_class', 'special_price_from', 'special_price_to', 'categories', 'related', 'up_sell', 'cross_sell', 'new_from', 'new_to', 'created_at', 'updated_at'], 'safe'],
+            [['type', 'name', 'short_description', 'description', 'sku', 'slug', 'meta_title', 'meta_keywords', 'meta_description', 'base_image','size_chart','gallery_images', 'length_class', 'weight_class', 'tax_type', 'tax_class', 'special_price_from', 'special_price_to', 'categories', 'related', 'up_sell', 'cross_sell', 'new_from', 'new_to', 'created_at', 'updated_at'], 'safe'],
             [['length', 'width', 'height', 'weight', 'price', 'special_price'], 'number'],
         ];
     }
@@ -93,6 +93,7 @@ class CatalogProductSearch extends CatalogProduct
             ->andFilterWhere(['like', 'meta_description', $this->meta_description])
             ->andFilterWhere(['like', 'base_image', $this->base_image])
             ->andFilterWhere(['like', 'gallery_images', $this->gallery_images])
+            ->andFilterWhere(['like', 'size_chart', $this->size_chart])
             ->andFilterWhere(['like', 'length_class', $this->length_class])
             ->andFilterWhere(['like', 'weight_class', $this->weight_class])
             ->andFilterWhere(['like', 'tax_type', $this->tax_type])

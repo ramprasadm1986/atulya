@@ -70,7 +70,7 @@ class CatalogProduct extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'short_description', 'description', 'sku', 'slug'], 'required'],
-            [['short_description', 'description', 'meta_title', 'meta_keywords', 'meta_description', 'base_image', 'gallery_images', 'categories', 'related', 'up_sell', 'cross_sell'], 'string'],
+            [['short_description', 'description', 'meta_title', 'meta_keywords', 'meta_description', 'base_image', 'gallery_images','size_chart', 'categories', 'related', 'up_sell', 'cross_sell'], 'string'],
             [['length', 'width', 'height', 'weight', 'price', 'special_price'], 'number'],
             [['tax_type_id', 'tax_rule_id', 'is_special_price', 'is_featured', 'is_trending', 'is_bestseller', 'is_new', 'status'], 'integer'],
             [['special_price_from', 'special_price_to', 'new_from', 'new_to', 'created_at', 'updated_at'], 'safe'],
@@ -115,6 +115,7 @@ class CatalogProduct extends \yii\db\ActiveRecord
             'meta_description' => Yii::t('app', 'Meta Description'),
             'base_image' => Yii::t('app', 'Base Image'),
             'gallery_images' => Yii::t('app', 'Gallery Images'),
+            'size_chart' => Yii::t('app', 'Size Chart'),
             'length' => Yii::t('app', 'Length'),
             'width' => Yii::t('app', 'Width'),
             'height' => Yii::t('app', 'Height'),

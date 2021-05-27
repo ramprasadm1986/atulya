@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use common\models\CatalogProductAttribute;
 use common\models\CatalogProductAttributesOption;
+use coderius\lightbox2\Lightbox2;
 
 /* @var $this yii\web\View */
 
@@ -73,6 +74,22 @@ $this->title = $product->name;
                   
                   <br /><?=$product->short_description;?></p>
                   
+                  <?php 
+                  if($product->size_chart): 
+                  
+                  
+                  ?>
+                  <?= coderius\lightbox2\Lightbox2::widget([
+                    'clientOptions' => [
+                        'resizeDuration' => 200,
+                        'wrapAround' => true,
+                        
+                    ]
+                ]); ?>
+                  <p>
+                    <a href="<?= $product->size_chart ?>" class="btn btn-outline-secondary mb-1" data-lightbox="roadtrip" data-title="SIZE CHART" data-alt="SIZE CHART">SIZE CHART</a>                  
+                  </p>
+                  <?php endif;?>
                     <div class="row">
                     <div class="col-12 col-lg-6 detail-option mb-5">
                         <label class="detail-option-heading font-weight-bold">Items <span>(required)</span></label>

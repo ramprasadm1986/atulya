@@ -99,6 +99,10 @@ class Product extends CatalogProduct
         return $this->base_image;
     }
     
+    public function getSizeChart(){
+        return $this->size_chart;
+    }
+    
     public function getGalleryImages(){
         
         return explode(",",$this->gallery_images);
