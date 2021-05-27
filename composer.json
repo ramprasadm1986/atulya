@@ -53,7 +53,8 @@
         "edwinhaq/yii2-simple-loading": "^1.0",
         "ramprasadm1986/yii2-paynimo": "^1.0",
         "vivekmarakana/yii2-timeline-widget": "dev-master",
-        "kartik-v/yii2-widget-typeahead": "^1.0"
+        "kartik-v/yii2-widget-typeahead": "^1.0",
+        "yiisoft/yii2-authclient": "^2.2"
         
     },
     "require-dev": {
