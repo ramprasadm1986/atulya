@@ -31,9 +31,7 @@ $this->title = $product->name;
         <div class="row">
             <div class="col-lg-6">
                 <div class="row">
-                    <div class="col-md-6 col-6" style="padding:3px;">
-                        <img class="zoom_picture" src="<?= $product->getImage();?>" data-zoom-image="<?= $product->getImage();?>" style="width:100%; height:auto;"/>
-                    </div>
+                    
                        <?php foreach($product->getGalleryImages() as $image) : ?>
                     <div class="col-md-6 col-6" style="padding:3px;">
                         <img class="zoom_picture" src="<?= $image;?>" data-zoom-image="<?= $image;?>" style="width:100%; height:auto;"/>
