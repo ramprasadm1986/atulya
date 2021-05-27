@@ -4,21 +4,21 @@
             <div class="container">
                <div class="row">
                   <div class="col-lg-4 service-column">
-                     <img src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_images/icon1.png"?>"/>
+                     <img src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_images/icon1.png"?>" alt=""/>
                      <div class="service-text">
                         <h6 class="text-uppercase">Shipping At Actual </h6>
                         <p class="text-muted font-weight-light text-sm mb-0">7 days return policy</p>
                      </div>
                   </div>
                   <div class="col-lg-4 service-column">
-                     <img src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_images/icon2.png"?>"/>
+                     <img src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_images/icon2.png"?>" alt=""/>
                      <div class="service-text">
                         <h6 class="text-uppercase">Money back guarantee</h6>
                         <p class="text-muted font-weight-light text-sm mb-0">30 Days Money Back Guarantee</p>
                      </div>
                   </div>
                   <div class="col-lg-4 service-column">
-                     <img src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_images/icon3.png"?>"/>
+                     <img src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_images/icon3.png"?>" alt=""/>
                      <div class="service-text">
                         <h6 class="text-uppercase">+91 7682842572</h6>
                         <p class="text-muted font-weight-light text-sm mb-0">24/7 Available Support</p>

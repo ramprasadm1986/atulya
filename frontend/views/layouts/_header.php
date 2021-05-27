@@ -60,7 +60,7 @@ $CartItems= $cart_obj->getCartAllItems($CartIdentifire);
          <!-- Navbar-->
          <div class="container-fluid" style="background: rgba(0,0,0,0.5);">
                 <div class="container" style="text-align:center;">
-               <!-- Navbar Header  --><a class="navbar-brand" href="<?= Url::home(); ?>"><img src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_images/logo.png"?>" style="height:60px;"/></a>
+               <!-- Navbar Header  --><a class="navbar-brand" href="<?= Url::home(); ?>"><img src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_images/logo.png"?>" alt="logo" style="height:60px;"/></a>
               
                </div>
          </div>
@@ -104,12 +104,17 @@ $CartItems= $cart_obj->getCartAllItems($CartIdentifire);
                      <?php ActiveForm::begin(['method' => 'get','id' => 'serachform','action' => ['category/search'],'options' => [
                 'class' => 'search-form  has-categories-select'
              ]]) ?>
-                     <div  id="newsletter-form">
+                     <div  id="search-form">
                      <div class="input-group ">
+                         <?php if(!Yii::$app->user->identity): ?>
+               
+                <?= Html::a('<span class="badge p-2 text-uppercase badge-info" style="background:#ed8b25;height:25px; margin-right:5px;" ><i class="fa fa-rocket text-md text-white"></i></span>', ['/site/trackorder']);?>
+                
+              <? endif;?>
                      <?php
                                 $template = '<div><a href="'.Yii::getAlias('@frontendUrl').'/product/{{slug}}" style="display:block;height:50px;" >'.
                                             '<div style="float: left;width: 20%; margin-right:1%;">'.
-                                            '<img src="{{base_image}}" style="width:100%;height:auto;" >' .
+                                            '<img src="{{base_image}}" style="width:100%;height:auto;" alt="" />' .
                                             '</div>'.
                                             '<div style="float: left;width: 75%;overflow: hidden;">'.
                                             '<span>{{name}}</span>' .
@@ -178,7 +183,7 @@ $CartItems= $cart_obj->getCartAllItems($CartIdentifire);
                                 <?php foreach($CartItems['CartItems'] as $item):?>
                                 <div class="navbar-cart-product" id="prod_min_<?=$item['id']?>">
                                     <div class="d-flex align-items-center">
-                                       <a href="<?=$item['full_url']?>" id="prod_min_<?=$item['id']?>_url"><img class="img-fluid navbar-cart-product-image" id="prod_min_<?=$item['id']?>_img" src="<?=$item['image'];?>" alt="<?=$item['item_name'];?>"></a>
+                                       <a href="<?=$item['full_url']?>" id="prod_min_<?=$item['id']?>_url"><img class="img-fluid navbar-cart-product-image" id="prod_min_<?=$item['id']?>_img" src="<?=$item['image'];?>" alt="<?=$item['item_name'];?>"/></a>
                                        <div class="w-100">
                                          <div class="pl-3"> <a class="navbar-cart-product-link" href="<?=$item['full_url']?>" id="prod_min_<?=$item['id']?>_name"><?=$item['item_name'];?></a><small class="d-block text-muted">Quantity: <span id="prod_min_<?=$item['id']?>_qty"><?=$item['qty']?></span> </small><strong class="d-block text-sm" id="prod_min_<?=$item['id']?>_total"><?= Yii::getAlias('@currency');?> <?=$item['row_total'];?></strong></div>
                                        </div>
@@ -195,11 +200,7 @@ $CartItems= $cart_obj->getCartAllItems($CartIdentifire);
                         </div>
                      </div>
                   </div>
-                   <?php if(!Yii::$app->user->identity): ?>
-               
-                <?= Html::a('<span class="badge p-2 text-uppercase badge-info" style="background:#ed8b25;height:25px; margin-right:5px;" ><i class="fa fa-rocket text-md text-white"></i></span>', ['/site/trackorder']);?>
-                
-              <? endif;?>
+                   
                </div>
               
              

@@ -11,18 +11,10 @@ use common\widgets\Alert;
  ?>
 
  <div style="width:100%; height:100%; float:left; background:rgba(0, 0, 0, 0.53); position:fixed; z-index:9999; display:none; " id="subscribebox">
-		<div class="mobpopup"  style=" width: 40%;
-  height: 300px;
-  background: #fff;
-  padding: 40px;
-  margin: auto;
-  margin-top:7%;
-  text-align: center;
-  padding-bottom: 15px;
-  border-radius: 6px; ">
-  <span><i class="fa fa-close" alt="close" style="float:right; color:#333; padding:5px; cursor:pointer; margin-top:-20px; margin-right:-20px;" onclick="$('#subscribebox').hide();"></i></span>
+		<div class="mobpopup popbox" >
+  <span><i class="fa fa-close"  style="float:right; color:#333; padding:5px; cursor:pointer; margin-top:-20px; margin-right:-20px;" onclick="$('#subscribebox').hide();"></i></span>
   
-  <h3 style="font-size:30px;color:#333; font-family: 'HK Grotesk',sans-serif; line-height:2;letter-spacing: 1px;"><img src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/maintainance.png"?>" height="100"/>
+  <h3 style="font-size:30px;color:#333; font-family: 'HK Grotesk',sans-serif; line-height:2;letter-spacing: 1px;"><img src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/maintainance.png"?>" height="100" alt=""/>
   <br/>
   Hey! We are<br><b>currently undergoing maintenance </b></h3>
   
@@ -42,7 +34,7 @@ use common\widgets\Alert;
                 <?php foreach (Yii::$app->getModule('banner')->getHomeBanners() as $slides): ?>
                     <div class="owl-item" style="width: 1583px;">
                          <div class="item d-flex align-items-center" style="background: rgb(248, 213, 207) none repeat scroll 0% 0%; height: 642.55px;">
-                            <img class="bg-image" src="<?=$slides->image; ?>" alt="<?=$slides->title ?>">
+                            <img class="bg-image" src="<?=$slides->image; ?>" alt="<?=$slides->title ?>" />
                                 <div class="container-fluid h-100 py-5 mt-5" style="margin-top: 400px !important;">
                                    <div class="row">
                                           <div class="col-lg-8 offset-lg-1 col-xl-6  text-white" >
@@ -82,7 +74,7 @@ use common\widgets\Alert;
             <div class="row mx-0">
                <div class="col-lg-4 mb-10px px-5px">
                   <div class="card border-0 text-center text-white">
-                     <img class="card-img" src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_images/image1.jpg"?>" alt="Card image">
+                     <img class="card-img" src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_images/image1.jpg"?>" alt="Card image" />
                      <div class="card-img-overlay d-flex align-items-center">
                         <div class="w-100">
                            <h3 class=" mb-4">Khandua Silk Saree</h3>
@@ -93,7 +85,7 @@ use common\widgets\Alert;
                </div>
                <div class="col-lg-4 mb-10px px-5px">
                   <div class="card border-0 text-center text-white">
-                     <img class="card-img" src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_images/banarasi.jpg"?>" alt="Card image">
+                     <img class="card-img" src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_images/banarasi.jpg"?>" alt="Card image" />
                      <div class="card-img-overlay d-flex align-items-center">
                         <div class="w-100">
                            <h3 class="mb-4">Banarasi Silk Saree</h3>
@@ -104,7 +96,7 @@ use common\widgets\Alert;
                </div>
                <div class="col-lg-4 mb-10px px-5px">
                   <div class="card border-0 text-center text-white">
-                     <img class="card-img" src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_images/dhokra1.jpg"?>" alt="Card image">
+                     <img class="card-img" src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_images/dhokra1.jpg"?>" alt="Card image" />
                      <div class="card-img-overlay d-flex align-items-center">
                         <div class="w-100">
                            <h3 class=" mb-4">Dhokra</h3>
@@ -167,7 +159,7 @@ use common\widgets\Alert;
                <!-- post-->
                <div class="col-lg-4 col-12">
                   <div class="mb-30px">
-                     <a href="#"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/handloom1.jpg"?>" alt="..."></a>
+                     <a href="#"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/handloom1.jpg"?>" alt="..." /></a>
                      
                   </div>
                </div>
@@ -178,10 +170,10 @@ use common\widgets\Alert;
                     
                      <div class="mt-3">
                         <small class="text-uppercase text-muted" style="display:none;">VIEW More Handloom Silk Sarees</small>
-                        <h5 class="my-2"><a class="text-dark font-weight-bold" href="post.html" style="display:none;">Direct from Weavers </a></h5>
+                        <h5 class="my-2"><a class="text-dark font-weight-bold" href="#" style="display:none;">Direct from Weavers </a></h5>
                       
                         <p class="my-2" style="font-size:17px;">The epitome of a ruling Indian textile with an inheritance of rich heritage and cultural beliefs, Atulya Karigari join hands with the weavers to make precious and pure products without alterations. The exquisite pieces of brocade silks will glorify the maximum intricacy being used to sprinkle a real glow on artisan’s hard work and cultural values. Sambalpuri handloom artisans presents a speckled map that manifests the diversity in ethnic and geographical aesthetic patterns. This holistic approach from our end has brought dynamic changes by enhancing the willpower and team spirit of women weavers and their families.</p>
-                        <a class="btn btn-link text-gray-700 pl-0" href="post.html" style="display:none;">More Handloom Sarees Online<i class="fa fa-arrow-right ml-2"></i></a>
+                        <a class="btn btn-link text-gray-700 pl-0" href="#" style="display:none;">More Handloom Sarees Online<i class="fa fa-arrow-right ml-2"></i></a>
                      </div>
                   </div>
                </div>
@@ -189,7 +181,7 @@ use common\widgets\Alert;
                <!-- post-->
                <div class="col-lg-4 col-12">
                   <div class="mb-30px">
-                     <a href="#"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/handloom2.jpg"?>" alt="..."></a>
+                     <a href="#"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/handloom2.jpg"?>" alt="..." /></a>
                     
                   </div>
                </div>
@@ -286,7 +278,7 @@ use common\widgets\Alert;
                <div class="col-lg-4 col-12 ">
                   
                   <div class="mb-30px">
-                     <a href="post.html"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home3.jpg"?>" alt="..."></a>
+                     <a href="#"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home3.jpg"?>" alt="..."/></a>
                      <div class="fashionbox">
                         <p class="text-uppercase " >CLUTCH BAG</p>
                         <p class="my-2">Handcrafted clutch bag made of patola fabric. Club it with your evening attire or style the strap with your kinda wear.<br/>
@@ -304,7 +296,7 @@ use common\widgets\Alert;
                <div class="col-lg-4 col-12">
                    
                   <div class="mb-30px">
-                     <a href="post.html"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home4.jpg"?>" alt="..."></a>
+                     <a href="#"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home4.jpg"?>" alt="..."/></a>
                      <div class="fashionbox">
                          <p class="text-uppercase " >POTLI BAG</p>
                          
@@ -321,7 +313,7 @@ use common\widgets\Alert;
                <div class="col-lg-4 col-12">
                   
                   <div class="mb-30px">
-                     <a href="post.html"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home5.jpg"?>" alt="..."></a>
+                     <a href="#"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/home5.jpg"?>" alt="..."/></a>
                      <div class="fashionbox ">
                           <p class="text-uppercase " >MOJRI</p>
                         <p class="my-2">Stylish Mojri for your summer wears. Style with a chicken kurta or khadi jacket. </p>
@@ -335,7 +327,7 @@ use common\widgets\Alert;
          </div>
       </section>
     <section class="py-6 position-relative light-overlay">
-         <img class="bg-image" src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_banners/banner4.jpg"?>" alt="">
+         <img class="bg-image" src="<?= Yii::getAlias('@storageUrlNonProtocal')."/home_banners/banner4.jpg"?>" alt=""/>
          <div class="container">
             <div class="overlay-content text-center text-light">
                <p class="text-uppercase font-weight-bold mb-1 letter-spacing-5">Authentic Hand Made                  </p>
@@ -353,27 +345,27 @@ use common\widgets\Alert;
                   <div class="owl-stage" >
                      <div class="owl-item active" >
                         <div class="item d-flex align-items-center justify-content-center" >
-                           <div class="w-7rem"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/logo1.png"?>" alt="Brand 1"></div>
+                           <div class="w-7rem"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/logo1.png"?>" alt="Brand 1"/></div>
                         </div>
                      </div>
                      <div class="owl-item active" >
                         <div class="item d-flex align-items-center justify-content-center" >
-                           <div class="w-7rem"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/logo2.png"?>" alt="Brand 2"></div>
+                           <div class="w-7rem"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/logo2.png"?>" alt="Brand 2"/></div>
                         </div>
                      </div>
                      <div class="owl-item active" >
                         <div class="item d-flex align-items-center justify-content-center">
-                           <div class="w-7rem"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/logo3.png"?>" alt="Brand 3"></div>
+                           <div class="w-7rem"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/logo3.png"?>" alt="Brand 3"/></div>
                         </div>
                      </div>
                      <div class="owl-item active" >
                         <div class="item d-flex align-items-center justify-content-center" >
-                           <div class="w-7rem"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/logo4.png"?>" alt="Brand 4"></div>
+                           <div class="w-7rem"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/logo4.png"?>" alt="Brand 4"/></div>
                         </div>
                      </div>
                      <div class="owl-item active" >
                         <div class="item d-flex align-items-center justify-content-center">
-                           <div class="w-7rem"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/logo1.png"?>" alt="Brand 5"></div>
+                           <div class="w-7rem"><img class="img-fluid" src="<?= Yii::getAlias('@frontendUrlNonProtocal')."/images/logo1.png"?>" alt="Brand 5"/></div>
                         </div>
                      </div>
                     
