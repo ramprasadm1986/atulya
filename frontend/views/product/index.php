@@ -31,9 +31,12 @@ $this->title = $product->name;
         <div class="row">
             <div class="col-lg-6">
                 <div class="row">
+                    <div class="col-md-6 col-6" style="padding:3px;">
+                        <img class="zoom_picture" src="<?= $product->getImage();?>" data-zoom-image="<?= $product->getImage();?>" style="width:100%; height:auto;"/>
+                    </div>
                        <?php foreach($product->getGalleryImages() as $image) : ?>
                     <div class="col-md-6 col-6" style="padding:3px;">
-                        <img src="<?= $image;?>" style="width:100%; height:auto;"/>
+                        <img class="zoom_picture" src="<?= $image;?>" data-zoom-image="<?= $image;?>" style="width:100%; height:auto;"/>
                     </div>
                       <?php endforeach;?>
                 </div>
@@ -156,3 +159,13 @@ var variation_ids=<?= json_encode($ProductVariation['ids']);?>;
 var CPAttribute_ids=<?= json_encode($CPAttribute_ids);?>;
 
 </script>
+
+<?php
+$js = <<<JS
+
+    $('.zoom_picture').elevateZoom({tint:true, tintColour:'#F90', tintOpacity:0.5});
+
+JS;
+
+$this->registerJs($js);
+?>

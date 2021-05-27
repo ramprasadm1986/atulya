@@ -18,7 +18,8 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
 		'js/main.js',
-		'js/cart.js'
+		'js/cart.js',
+        'js/elevatezoom.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
