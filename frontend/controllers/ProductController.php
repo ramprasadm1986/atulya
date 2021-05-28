@@ -1,8 +1,14 @@
 <?php
 
 namespace frontend\controllers;
+
+use Yii;
 use common\models\Product;
 use yii\helpers\Url;
+use common\models\CatalogProductReview;
+use common\models\search\CatalogProductReviewSearch;
+
+
 
 
 class ProductController extends \yii\web\Controller
@@ -30,8 +36,25 @@ class ProductController extends \yii\web\Controller
                
             }
             
-            return $this->render('index',['product'=>$product,'ProductVariation'=>$ProductVariation]);
-            
+             if (Yii::$app->hasModule('review')){
+                 
+                $revmodel = new CatalogProductReview();      
+                $User_Review=false;
+                if(Yii::$app->user->identity){
+                    $user=Yii::$app->user->identity;
+                    $hasReview=CatalogProductReview::find()->where(['product_id'=>$product->id,'user_id'=>$user->id])->one();
+                    
+                    if($hasReview){
+                        
+                        $revmodel = CatalogProductReview::findOne($hasReview->id);
+                        $User_Review=true;
+                        
+                    }
+                }
+                return $this->render('index',['product'=>$product,'ProductVariation'=>$ProductVariation,'revmodel'=>$revmodel,'UReview'=>$User_Review]);
+             }
+             else
+                 return $this->render('index',['product'=>$product,'ProductVariation'=>$ProductVariation]);
         }
         else{
             throw new \yii\web\NotFoundHttpException("Page not found",404);
