@@ -26,7 +26,7 @@ RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,NE,R=301]
 
 # Frontend redirect
-RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_URI} ^/(.*)$
 RewriteRule ^(.*)$ frontend/web/$1
