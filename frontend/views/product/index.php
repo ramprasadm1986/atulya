@@ -154,7 +154,7 @@ $this->title = $product->name;
           <div class="tab-pane" id="reviews" role="tabpanel">
             <div class="row mb-5">
               <div class="col-lg-10 col-xl-9">
-              
+                <?php if(Yii::$app->getModule('review')->getReviewCount($product->id)): ?>
                 <?php foreach (Yii::$app->getModule('review')->getReviews($product->id) as $review): ?>
                 <div class="media review">
                   <div class="text-center mr-4 mr-xl-5"><img class="review-image" src="<?= Yii::getAlias('@storageUrlNonProtocal')."/default/unnamed.png"?>" alt="<?= $review->username;?>" ><span class="text-uppercase text-muted"><?= date("jS M, Y",strtotime($review->created_at));?></span></div>
@@ -178,7 +178,9 @@ $this->title = $product->name;
                   </div>
                 </div>
                 <?php endforeach;?>
-                
+                <?php else: ?>
+                <div class="media review">No Reviews</div>
+                <?php endif; ?>
                
                  <?php if(Yii::$app->user->identity):
 
@@ -210,6 +212,14 @@ $this->title = $product->name;
                     <button class="btn btn-outline-dark" type="submit"> <?= ($UReview)? "Update review": "Post Review";?></button>
                    <?php ActiveForm::end(); ?>
                 </div>
+                
+                
+                <?php else: ?>
+                
+                <div class="py-5 px-3">
+                
+                    <h3><a href="<?= Yii::$app->urlManager->createUrl(['site/login']);?>">Login To Post Your Review</a></h3>
+                <div>
                 
                 <?php endif;?>
               </div>
