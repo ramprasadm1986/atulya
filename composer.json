@@ -55,7 +55,9 @@
         "vivekmarakana/yii2-timeline-widget": "dev-master",
         "kartik-v/yii2-widget-typeahead": "^1.0",
         "yiisoft/yii2-authclient": "^2.2",
-        "coderius/yii2-lightbox2-widget": "^1.0"
+        "coderius/yii2-lightbox2-widget": "^1.0",
+        "kartik-v/yii2-widget-rating": "^1.0",
+        "kartik-v/yii2-icons": "^1.4"
         
     },
     "require-dev": {

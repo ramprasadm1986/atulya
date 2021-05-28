@@ -5,6 +5,13 @@ use yii\helpers\ArrayHelper;
 use common\models\CatalogProductAttribute;
 use common\models\CatalogProductAttributesOption;
 use coderius\lightbox2\Lightbox2;
+use kartik\widgets\StarRating;
+use kartik\icons\FontAwesomeAsset;
+use yii\widgets\ActiveForm;
+    
+//FontAwesomeAsset::register($this);
+
+
 
 /* @var $this yii\web\View */
 
@@ -59,15 +66,22 @@ $this->title = $product->name;
                         <del>{{price}}</del>
                       </li>
                     </ul>");?>
-                    <!-- div class="d-flex align-items-center">
-                      <ul class="list-inline mr-2 mb-0">
-                        <li class="list-inline-item mr-0"><i class="fa fa-star text-primary"></i></li>
-                        <li class="list-inline-item mr-0"><i class="fa fa-star text-primary"></i></li>
-                        <li class="list-inline-item mr-0"><i class="fa fa-star text-primary"></i></li>
-                        <li class="list-inline-item mr-0"><i class="fa fa-star text-primary"></i></li>
-                        <li class="list-inline-item mr-0"><i class="fa fa-star text-gray-300"></i></li>
-                      </ul><span class="text-muted text-uppercase text-sm">25 reviews</span>
-                    </div -->
+                     <?php if (Yii::$app->hasModule('review')): ?>
+                    <div class="d-flex align-items-center">
+                      <?php echo StarRating::widget([
+                        'name'=> 'product_rating_'.$product->id,
+                        'value' => Yii::$app->getModule('review')->getAvgReview($product->id),
+                        'pluginOptions' => [ 
+                            'size' => 'xs',
+                            'displayOnly' => true,
+                            'filledStar' => '<i class="fa fa-star text-warn"></i>',
+                            'emptyStar' => '<i class="fa fa-star text-gray-300"></i>',
+                            'showClear' => false,
+                            'showCaption' => false
+                        ]
+                    ]); ?><span class="text-muted text-uppercase text-sm"><?=Yii::$app->getModule('review')->getReviewCount($product->id)?> reviews</span>
+                    </div>
+                    <?php endif;?>
                   </div>
                   <p class="mb-4 text-muted">
                       
@@ -130,13 +144,78 @@ $this->title = $product->name;
       <div class="container-fluid blogcontainer tabcontentbox">
         <ul class="nav nav-tabs flex-column flex-sm-row" role="tablist">
           <li class="nav-item"><a class="nav-link detail-nav-link active" data-toggle="tab" href="#description" role="tab" aria-selected="false">Description</a></li>
-         
+          <li class="nav-item"><a class="nav-link detail-nav-link" data-toggle="tab" href="#reviews" role="tab" aria-selected="true">Reviews</a></li>
         </ul>
         <div class="tab-content py-4">
           <div class="tab-pane px-3 active" id="description" role="tabpanel">
            <p><?=$product->description;?></p>
           </div>
-    
+          <?php if (Yii::$app->hasModule('review')): ?>
+          <div class="tab-pane" id="reviews" role="tabpanel">
+            <div class="row mb-5">
+              <div class="col-lg-10 col-xl-9">
+              
+                <?php foreach (Yii::$app->getModule('review')->getReviews($product->id) as $review): ?>
+                <div class="media review">
+                  <div class="text-center mr-4 mr-xl-5"><img class="review-image" src="<?= Yii::getAlias('@storageUrlNonProtocal')."/default/unnamed.png"?>" alt="<?= $review->username;?>" ><span class="text-uppercase text-muted"><?= date("jS M, Y",strtotime($review->created_at));?></span></div>
+                  <div class="media-body">
+                    <h5 class="mt-2 mb-1"><?= $review->username;?></h5>
+                    <div class="mb-2">
+                    <?php echo StarRating::widget([
+                        'name'=> 'user_rating',
+                        'value' => $review->rating,
+                        'pluginOptions' => [ 
+                            'size' => 'xs',
+                            'displayOnly' => true,
+                            'filledStar' => '<i class="fa fa-star text-warn"></i>',
+                            'emptyStar' => '<i class="fa fa-star text-gray-300"></i>',
+                            'showClear' => false,
+                            'showCaption' => false
+                        ]
+                    ]); ?>
+                    </div>
+                    <p class="text-muted"><?= $review->comment;?></p>
+                  </div>
+                </div>
+                <?php endforeach;?>
+                
+               
+                 <?php if(Yii::$app->user->identity):
+
+                    $user=Yii::$app->user->identity;
+                 ?>
+                <div class="py-5 px-3">
+                  <?php if($UReview): ?>
+                    <h5 class="text-uppercase mb-4">Update Your review</h5>
+                    <?php $form = ActiveForm::begin(['action'=>Yii::$app->urlManager->createUrl(['review/edit/'.$revmodel->id])]); ?>
+                    
+                    <?php  else: ?>
+                    
+                    <h5 class="text-uppercase mb-4">Leave a review</h5>
+                    <?php $form = ActiveForm::begin(['action'=>Yii::$app->urlManager->createUrl(['review/add'])]); ?>
+                    <?php endif;?>
+                    <?= $form->field($revmodel, 'user_id')->hiddenInput(['value'=>$user->id])->label(false) ?>
+                    <?= $form->field($revmodel, 'username')->hiddenInput(['value'=>$user->username])->label(false) ?>
+                    <?= $form->field($revmodel, 'product_id')->hiddenInput(['value'=>$product->id])->label(false) ?>
+                   <?= $form->field($revmodel, 'rating')->widget(StarRating::classname(), [
+                        'pluginOptions' => [
+                            'step'=>0.5,
+                            'size' => 'md',
+                            'filledStar' => '<i class="fa fa-star text-warn"></i>',
+                            'emptyStar' => '<i class="fa fa-star text-gray-300"></i>',
+                            'showClear' => false,
+                        ]
+                    ]);?>
+                    <?= $form->field($revmodel, 'comment')->textarea(['rows' => 6]) ?>
+                    <button class="btn btn-outline-dark" type="submit"> <?= ($UReview)? "Update review": "Post Review";?></button>
+                   <?php ActiveForm::end(); ?>
+                </div>
+                
+                <?php endif;?>
+              </div>
+            </div>
+          </div>
+            <?php endif;?>
         </div>
       </div>
     </section>
