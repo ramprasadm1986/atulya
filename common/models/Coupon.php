@@ -83,7 +83,7 @@ class Coupon extends \yii\db\ActiveRecord
             'start_on' => Yii::t('app', 'Start On'),
             'expire_on' => Yii::t('app', 'Expire On'),
             'current_use' => Yii::t('app', 'Current Use'),
-            'total_use' => Yii::t('app', 'Max Use/User'),
+            'total_use' => Yii::t('app', 'Max Use'),
             'description' => Yii::t('app', 'Description'),
             'active' => Yii::t('app', 'Active'),
             'public' => Yii::t('app', 'Allow Guest User'),
@@ -93,8 +93,8 @@ class Coupon extends \yii\db\ActiveRecord
             'discount' => Yii::t('app', 'Discount'),
             'products' => Yii::t('app', 'Products'),
             'categories' => Yii::t('app', 'Categories'),
-            'total_rev' => Yii::t('app', 'Total Revenue Generated'),
-            'total_dis' => Yii::t('app', 'Total Discount Given'),
+            'total_rev' => Yii::t('app', 'TRG'),
+            'total_dis' => Yii::t('app', 'TDG'),
         ];
     }
 
