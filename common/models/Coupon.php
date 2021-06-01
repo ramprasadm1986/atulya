@@ -83,7 +83,7 @@ class Coupon extends \yii\db\ActiveRecord
             'start_on' => Yii::t('app', 'Start On'),
             'expire_on' => Yii::t('app', 'Expire On'),
             'current_use' => Yii::t('app', 'Current Use'),
-            'total_use' => Yii::t('app', 'Max Use ( 0 : Unlimited )'),
+            'total_use' => Yii::t('app', 'Max Use (0 - Unlimited)'),
             'description' => Yii::t('app', 'Description'),
             'active' => Yii::t('app', 'Active'),
             'public' => Yii::t('app', 'Allow Guest User'),
