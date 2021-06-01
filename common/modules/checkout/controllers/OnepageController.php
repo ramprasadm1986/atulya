@@ -429,8 +429,7 @@ class OnepageController extends Controller
                 $Cart->save();
                 $coupon=Coupon::find()->where(['code'=>strtoupper($Order->descout_details),'active'=>1])->one();
                 
-                if($coupon){
-                    
+                if($coupon){                    
                   $coupon->current_use=$coupon->current_use+1;
                   $coupon->total_rev=$coupon->total_rev+$Order->order_total;             
                   $coupon->total_dis=$coupon->total_dis+$Order->discount;             
