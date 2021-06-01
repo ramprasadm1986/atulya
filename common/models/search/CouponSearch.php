@@ -68,6 +68,8 @@ class CouponSearch extends Coupon
             'public' => $this->public,
             'has_condition' => $this->has_condition,
             'discount' => $this->discount,
+            'total_rev' => $this->total_rev,
+            'total_dis' => $this->total_dis,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])

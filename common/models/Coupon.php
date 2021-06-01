@@ -60,7 +60,7 @@ class Coupon extends \yii\db\ActiveRecord
             [['name', 'code', 'start_on', 'expire_on', 'discount','discount_type'], 'required'],
             [['start_on', 'expire_on'], 'safe'],
             [['current_use', 'total_use', 'active', 'public', 'has_condition'], 'integer'],
-            [['discount'], 'number'],
+            [['discount','total_rev','total_dis'], 'number'],
             [['products','categories'], 'string'],
             [['name'], 'string', 'max' => 200],
             [['code', 'description','discount_type'], 'string', 'max' => 255],
@@ -93,6 +93,8 @@ class Coupon extends \yii\db\ActiveRecord
             'discount' => Yii::t('app', 'Discount'),
             'products' => Yii::t('app', 'Products'),
             'categories' => Yii::t('app', 'Categories'),
+            'total_rev' => Yii::t('app', 'Total Revenue Generated'),
+            'total_dis' => Yii::t('app', 'Total Discount Given'),
         ];
     }
 

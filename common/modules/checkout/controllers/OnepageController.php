@@ -20,6 +20,7 @@ use common\models\ShippingMethod;
 use common\models\Order;
 use common\models\OrderItem;
 use common\models\OrderAddress;
+use common\models\Coupon;
 
 use yii\web\HttpException;
 
@@ -408,10 +409,10 @@ class OnepageController extends Controller
        
      
        
-       if(strtolower($str->txn_msg)=="success"){
+        if(strtolower($str->txn_msg)=="success"){
            
           
-          $order_identi=explode("-",$str->clnt_txn_ref);
+            $order_identi=explode("-",$str->clnt_txn_ref);
             $CartIdentifire=$order_identi[1];
             $OrderIdentifire=$order_identi[0];
            
@@ -426,14 +427,25 @@ class OnepageController extends Controller
                 $Order->save();
                 $Cart->status=1;
                 $Cart->save();
+                $coupon=Coupon::find()->where(['code'=>strtoupper($Order->descout_details),'active'=>1])->one();
+                
+                if($coupon){
+                    
+                  $coupon->current_use=$coupon->current_use+1;
+                  $coupon->total_rev=$coupon->total_rev+$Order->order_total;             
+                  $coupon->total_dis=$coupon->total_dis+$Order->discount;             
+                  $coupon->save(); 
+                }
+                
+                
                 
                 Yii::$app->session->remove('CartIdentifire');
                 
                 return $this->redirect(['/checkout/success']); 
-           }
-           else if(strtolower($str->txn_msg)=="aborted"){
+        }
+        else if(strtolower($str->txn_msg)=="aborted"){
                
-               $order_identi=explode("-",$str->clnt_txn_ref);
+            $order_identi=explode("-",$str->clnt_txn_ref);
             $CartIdentifire=$order_identi[1];
             $OrderIdentifire=$order_identi[0];
            
@@ -452,12 +464,12 @@ class OnepageController extends Controller
                 Yii::$app->session->setFlash('error', 'Order Payment Aborted By User');
                return $this->redirect(['/cart']);
                
-           }
-            else{
+        }
+        else{
                 Yii::$app->session->remove('OrderIdentifire');
                 
                 return $this->redirect(['/cart']);
-            }
+        }
      }
      catch(Exception $e) {
          
