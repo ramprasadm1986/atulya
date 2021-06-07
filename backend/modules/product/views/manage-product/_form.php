@@ -167,6 +167,16 @@ $('#product_create').on('afterValidate', function(event, messages, errorAttribut
     return false;
   }
 });
+
+
+$("#product_create .has-error").each(function() {
+       
+        var pane = $(this).closest('.tab-pane');
+        var tabId = pane[0].id;
+        $('.nav-tabs a[href="#' + tabId + '"]').tab('show');
+        return false;
+     });
+
 JS;
 $this->registerJs($script);
 ?>
