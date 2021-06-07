@@ -51,6 +51,9 @@ content:" * ";
 color:#b32525;
 
 }
+.imgboxnew{padding: 10px;
+border: 1px solid #dedede;
+box-shadow: 0px 4px 10px 0 rgba(0, 0, 0, 0.5);}
 .has-error .form-control{border: 1px solid #b32525;}
 .has-error .control-label{color: #b32525;}
 .help-block-error{color: #b32525;}
@@ -60,6 +63,7 @@ color:#b32525;
 .pt-6, .py-6 {
     padding-top: 6rem !important;
 }
+.py-10{padding-top:10rem !important; padding-bottom:10rem !important;}
 .text-uppercase {
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -92,8 +96,8 @@ ul {
     margin-left: 5px;
 }
 .navbar-airy .navbar-nav .nav-link {
-    padding-right: .5rem;
-    padding-left: .5rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
 }
 .navbar-light .navbar-nav .nav-link{color: rgba(0,0,0,0.65);}
 .navbar-dark .navbar-nav .nav-link.active {
