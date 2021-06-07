@@ -77,7 +77,7 @@ class CatalogProduct extends \yii\db\ActiveRecord
             [['type', 'length_class', 'weight_class'], 'string', 'max' => 10],
             [['name', 'sku', 'slug', 'tax_type', 'tax_class'], 'string', 'max' => 255],
             [['tax_type','tax_rule_id'],'required','on'=>'reqtax'],
-            [['sku'], 'unique'],
+            [['sku','slug'], 'unique'],
             ['slug', 'filter', 'filter' => [$this, 'sanitizeSlug']],
             [['slug'], 'match', 'pattern' => '/^[a-z0-9][a-z0-9-]+$/','message' => 'SLUG can only contain alphanumeric characters and dashes. All are in lower case and must start with characters.'],
             [['sku'], 'match', 'pattern' => '/^[a-zA-Z0-9][a-zA-Z0-9-_\.]{1,255}$/','message' => 'SKU can only contain alphanumeric characters, underscores and dashes.']
